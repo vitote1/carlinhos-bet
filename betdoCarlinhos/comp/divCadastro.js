@@ -54,7 +54,6 @@ const Cadastro = () => {
                         <TextInput style={styles.input}
                             placeholder='000.000.000-00'
                             placeholderTextColor="#b3b3b3ff"
-                            secureTextEntry={true}
                         >
                         </TextInput>
                     </View>
@@ -82,7 +81,7 @@ const Cadastro = () => {
                     </View>
                     <View style={styles.inputEmail}>
                         <TextInput style={styles.input}
-                            placeholder= 'Confirme sua senha'
+                            placeholder='Confirme sua senha'
                             placeholderTextColor="#b3b3b3ff"
                             secureTextEntry={true}
                         >
@@ -101,8 +100,8 @@ const Cadastro = () => {
             </View>
 
         </View >
-        
-        
+
+
 
     );
 };
