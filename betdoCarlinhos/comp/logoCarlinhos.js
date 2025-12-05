@@ -9,8 +9,11 @@ const Logo = () => {
 
     return (
      <View style={styles.divLogo}>
-        <Text style={styles.carlos}>
-          Carlinhos Bet
+        <Text style={styles.carlos1}>
+          Carlinhos
+        </Text>
+        <Text style={styles.carlos2}>
+          Bet
         </Text>
       </View>
 
@@ -21,17 +24,24 @@ const Logo = () => {
 
 const styles = StyleSheet.create({
     divLogo: {
-        width: 400,
-        height: 80,
+        width: 500,
+        height: 70,
+        marginTop: 130,
         justifyContent: 'center',
         alignItems: 'center',
     },
-    carlos: {
-        fontSize: 40,
-        fontWeight: 700,
-        color: '#FFFFFF',
+    carlos1: {
+        fontSize: 50,
+        fontWeight: 800,
+        color: '#00C5AE',
     },
-
+    carlos2: {
+        marginRight: 140,
+        alignContent:'start',
+        fontSize: 50,
+        fontWeight: 800,
+        color: '#A7A7A7',
+    },
 
 });
 
