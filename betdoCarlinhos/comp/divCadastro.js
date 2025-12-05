@@ -3,7 +3,7 @@ import React from 'react';
 import { useRouter } from 'expo-router';
 
 
-const Login = () => {
+const Cadastro = () => {
 
     const router = useRouter();
 
@@ -12,10 +12,24 @@ const Login = () => {
         <View style={styles.divLogin}>
             <View style={styles.divText}>
                 <Text style={styles.title}>
-                    Login
+                    Cadastro
                 </Text>
             </View>
             <View style={styles.divForm}>
+                <View style={styles.divEmail}>
+                    <View style={styles.email}>
+                        <Text style={styles.text}>
+                            Nome
+                        </Text>
+                    </View>
+                    <View style={styles.inputEmail}>
+                        <TextInput style={styles.input}
+                            placeholder='Seu nome'
+                            placeholderTextColor="#b3b3b3ff"
+                        >
+                        </TextInput>
+                    </View>
+                </View>
                 <View style={styles.divEmail}>
                     <View style={styles.email}>
                         <Text style={styles.text}>
@@ -26,6 +40,21 @@ const Login = () => {
                         <TextInput style={styles.input}
                             placeholder='seu@email.com'
                             placeholderTextColor="#b3b3b3ff"
+                        >
+                        </TextInput>
+                    </View>
+                </View>
+                <View style={styles.divEmail}>
+                    <View style={styles.email}>
+                        <Text style={styles.text}>
+                            CPF
+                        </Text>
+                    </View>
+                    <View style={styles.inputEmail}>
+                        <TextInput style={styles.input}
+                            placeholder='000.000.000-00'
+                            placeholderTextColor="#b3b3b3ff"
+                            secureTextEntry={true}
                         >
                         </TextInput>
                     </View>
@@ -45,18 +74,35 @@ const Login = () => {
                         </TextInput>
                     </View>
                 </View>
+                <View style={styles.divEmail}>
+                    <View style={styles.email}>
+                        <Text style={styles.text}>
+                            Confirmar Senha
+                        </Text>
+                    </View>
+                    <View style={styles.inputEmail}>
+                        <TextInput style={styles.input}
+                            placeholder= 'Confirme sua senha'
+                            placeholderTextColor="#b3b3b3ff"
+                            secureTextEntry={true}
+                        >
+                        </TextInput>
+                    </View>
+                </View>
                 <View style={styles.divBotao}>
                     <TouchableOpacity style={styles.botaoLogar}>
-                        <Text style={styles.textBotao}>Logar</Text>
+                        <Text style={styles.textBotao}>Cadastrar</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.linkCadastro}>
-                    <Text style={styles.textCadastro}>Ainda não tem uma conta?</Text>
-                    <TouchableOpacity onPress={() => router.navigate('telaCadastro')}> <Text style={styles.botaoCadastro}>Cadastre-se</Text></TouchableOpacity>
+                    <Text style={styles.textCadastro}>Já possui uma conta?</Text>
+                    <TouchableOpacity onPress={() => router.navigate('telaLogin')}> <Text style={styles.botaoCadastro}>Logar-se</Text></TouchableOpacity>
                 </View>
             </View>
 
         </View >
+        
+        
 
     );
 };
@@ -150,4 +196,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Login;
+export default Cadastro;

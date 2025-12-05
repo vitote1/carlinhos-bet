@@ -1,15 +1,17 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import React from 'react';
 import Back from '../comp/background';
-import Login from '../comp/divLogin';
+import Cadastro from '../comp/divCadastro';
 export default function Index() {
   return (
 
     <View style={styles.container}>
       <Back style={StyleSheet.absoluteFill}/>
-          <View style={styles.divLogin}>
-            <Login/>
+         <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={styles.divCadastro}>
+            <Cadastro/>
           </View>
+         </ScrollView>
        
     </View>
   );
@@ -22,7 +24,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     },
-    divLogin: {
+    divCadastro: {
       marginTop: 200,
     },
 

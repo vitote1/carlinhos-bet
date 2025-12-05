@@ -1,13 +1,19 @@
 import { Text, View, StyleSheet } from 'react-native';
 import React from 'react';
-import Botao from '../comp/botao';
+import Botao from '../comp/botaoJogar';
 import Logo from '../comp/logoCarlinhos';
 import Back from '../comp/background';
+import { useRouter } from 'expo-router';
 export default function Index() {
+
+const router = useRouter();
+
+
+
   return (
 
     <View style={styles.container}>
-      <Back style={StyleSheet.absoluteFillObject}/>
+      <Back style={StyleSheet.absoluteFill}/>
 
         <View style={styles.divLogo}>
           <Logo />
