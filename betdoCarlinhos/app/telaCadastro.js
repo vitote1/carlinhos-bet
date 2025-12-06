@@ -6,7 +6,6 @@ export default function Index() {
   return (
 
     <View style={styles.container}>
-      //cu assado
       <Back style={StyleSheet.absoluteFill}/>
          <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.divCadastro}>
