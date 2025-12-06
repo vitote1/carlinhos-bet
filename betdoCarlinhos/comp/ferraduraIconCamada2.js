@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         alignItems: 'center',
         marginTop: 60,
-        zIndex:1,
+        zIndex:3,
     
     
     },
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         width: 250,
         height: 118,
-        zIndex:1,
+        zIndex:3,
         marginTop:131,
         alignSelf: 'center',
         
