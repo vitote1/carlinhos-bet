@@ -1,7 +1,7 @@
-import { Text, View,  StyleSheet } from 'react-native';
+import { Text, View,  StyleSheet, Image } from 'react-native';
 import React from 'react';
 
-const imagem = () => {
+const CarlinhosIcone = () => {
 
 
 
@@ -10,11 +10,10 @@ const imagem = () => {
 
 
     return (
-         <View style={styles.divImagem}>
-            <View style={styles.botao}>
-                <Text style={styles.texto}>Jogar</Text>
+         
+            <View style={styles.carlinhosIconeDiv}>
+                <Image style={styles.carlinhosIcone}  source={require("../assets/images/carlinhosIcon.png")}></Image>
             </View>
-         </View>
 
 
     );
@@ -22,22 +21,24 @@ const imagem = () => {
 }
 
 const styles = StyleSheet.create({
-    botao: {
-        height: 69,
-        borderWidth: 2,
-        borderRadius: 15,
-        color: '#FFFFFF',
-        justifyContent: 'center',
+    carlinhosIconeDiv:{
+        zIndex:2,
+        position:'absolute',
+        alignContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#182554',
+        marginTop: 62,
+        
     },
-    texto: {
-        fontSize: 30,
-        fontWeight: 400,
-        color: '#FFFFFF',
+    carlinhosIcone: {
+        zIndex:2,
+        position: 'absolute',
+        width: 120,
+        height: 160,
+        borderRadius: 12,
+        
     },
 
 
 });
 
-export default imagem;
+export default CarlinhosIcone;
