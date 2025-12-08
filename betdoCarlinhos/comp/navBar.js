@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 
 const Imagem = require('../assets/images/setaback.png');
+const cavalo = require('../assets/images/iconeCavalo.png');
 const NavBar = () => {
   const router = useRouter();
 
@@ -21,6 +22,11 @@ const NavBar = () => {
       </TouchableOpacity>
 
       <View style={styles.divTitle}>
+        <Image
+          source={cavalo} 
+          style={{ width: 40, height: 40}}
+          resizeMode="contain"
+        />
         <Text style={styles.title}>Carlinhos Bet</Text>
       </View>
     </View>
@@ -52,11 +58,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 48, 
+    flexDirection: 'row',
+    gap: 7,
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
     color: '#FFFFFF',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

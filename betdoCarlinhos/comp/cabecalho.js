@@ -14,7 +14,7 @@ const Cabecalho = () => {
         </View>
         <Text style={styles.logo}>Carlinhos Bet</Text>
         <Image
-          source={require('../assets/images/Cavalo_homossexual_de_las_montanas.png')} // Sua imagem do logo
+          source={require('../assets/images/iconeCavalo.png')} // Sua imagem do logo
           style={styles.logoImage}
         />
       </View>
