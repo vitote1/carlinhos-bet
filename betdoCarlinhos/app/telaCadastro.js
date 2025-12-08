@@ -5,17 +5,16 @@ import Cadastro from '../comp/divCadastro';
 import NavBar from '../comp/navBar';
 export default function Index() {
   return (
-
     <View style={styles.container}>
-      //cu assado
       <Back style={StyleSheet.absoluteFill} />
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <NavBar></NavBar>
+       <NavBar />
+      <ScrollView 
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.divCadastro}>
           <Cadastro />
         </View>
       </ScrollView>
-
     </View>
   );
 }
@@ -23,12 +22,12 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     width: '100%',
     height: '100%',
+    alignItems: 'center',
   },
   divCadastro: {
     marginTop: 200,
+    marginBottom: 200,
   },
-
 });

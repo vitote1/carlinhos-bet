@@ -17,31 +17,26 @@ export default function Index() {
   return (
 
     <View style={styles.container}>
-
       <Back style={StyleSheet.absoluteFill} />
-      <View >
-        <TrevoTop />
-      </View>
+        <View>
+          <CarlinhosIcone width={120} height={160} topCarlinhos={64}/>
+        </View>
+        <View style={styles.ferradura1}> 
+          <FerraduraIcon width={252} height={200} ferraduraTop={90}/>
 
-      <View style={styles.carlinhos}>
-        <CarlinhosIcone />
-      </View>
-      <View style={styles.ferradura1}>
-        <FerraduraIcon />
-
-      </View>
-      <View style={styles.ferradura2}>
-        <FerraduraIconCamada2 />
+        </View>
+        <View style={styles.ferradura2}> 
+          <FerraduraIconCamada2 width={252} height={110} top={135} />
 
       </View>
 
+        <View style={styles.divLogo}>
+          <Logo/>
+        </View>
 
-      <View style={styles.divLogo}>
-        <Logo />
-      </View>
-      <View style={styles.divBotao}>
-        <Botao />
-      </View>
+        <View style={styles.divBotao}>
+          <Botao/>
+        </View>
     </View>
   );
 }

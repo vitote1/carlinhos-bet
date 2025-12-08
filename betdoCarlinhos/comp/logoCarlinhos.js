@@ -24,6 +24,7 @@ const Logo = () => {
 
 const styles = StyleSheet.create({
     divLogo: {
+        
         width: 500,
         height: 70,
         marginTop: 130,
