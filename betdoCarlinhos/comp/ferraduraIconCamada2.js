@@ -1,9 +1,16 @@
 import React from "react";
 import { Image, View, StyleSheet} from "react-native";
-const FerraduraIconCamada2 = () => {
+const FerraduraIconCamada2 = ({ width, height,top }) => {
     return(
         <View styles={styles.divFerradura} >
-            <Image style={styles.iconeFerradura} source={require("../assets/images/ferraduraIcon.png")}></Image>
+            <Image style={{
+                position: 'absolute',
+                width: width,
+                height: height,
+                zIndex:3,
+                marginTop:top,
+                alignSelf: 'center',
+            }} source={require("../assets/images/ferraduraIcon.png")}></Image>
         </View>
 
     )
@@ -19,14 +26,5 @@ const styles = StyleSheet.create({
     
     
     },
-    iconeFerradura: {
-        position: 'absolute',
-        width: 250,
-        height: 118,
-        zIndex:3,
-        marginTop:131,
-        alignSelf: 'center',
-        
-    }
 });
 export default FerraduraIconCamada2;

@@ -1,7 +1,7 @@
 import { Text, View,  StyleSheet, Image } from 'react-native';
 import React from 'react';
 
-const CarlinhosIcone = () => {
+const CarlinhosIcone = ({ width, height, topCarlinhos }) => {
 
 
 
@@ -12,7 +12,15 @@ const CarlinhosIcone = () => {
     return (
          
             <View style={styles.carlinhosIconeDiv}>
-                <Image style={styles.carlinhosIcone}  source={require("../assets/images/carlinhosIcon.png")}></Image>
+                <Image  
+                style={{ 
+                width: width, 
+                height: height,
+                zIndex:2,
+                marginTop: topCarlinhos,
+                position: 'absolute',
+                borderRadius: 12,
+      }} source={require("../assets/images/carlinhosIcon.png")}></Image>
             </View>
 
 
@@ -26,15 +34,7 @@ const styles = StyleSheet.create({
         position:'absolute',
         alignContent: 'center',
         alignItems: 'center',
-        marginTop: 62,
         
-    },
-    carlinhosIcone: {
-        zIndex:2,
-        position: 'absolute',
-        width: 120,
-        height: 160,
-        borderRadius: 12,
         
     },
 

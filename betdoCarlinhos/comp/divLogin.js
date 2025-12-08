@@ -46,7 +46,8 @@ const Login = () => {
                     </View>
                 </View>
                 <View style={styles.divBotao}>
-                    <TouchableOpacity style={styles.botaoLogar}>
+                    
+                    <TouchableOpacity style={styles.botaoLogar} onPress={() => router.navigate('telaDeJogos')}>
                         <Text style={styles.textBotao}>Logar</Text>
                     </TouchableOpacity>
                 </View>
