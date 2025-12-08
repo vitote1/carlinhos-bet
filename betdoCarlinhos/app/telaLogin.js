@@ -2,11 +2,13 @@ import { Text, View, StyleSheet } from 'react-native';
 import React from 'react';
 import Back from '../comp/background';
 import Login from '../comp/divLogin';
+import NavBar from '../comp/navBar';
 export default function Index() {
   return (
 
-    <View style={styles.container}>
+    <View style={styles.container}>  
       <Back style={StyleSheet.absoluteFill}/>
+      <NavBar></NavBar>
           <View style={styles.divLogin}>
             <Login/>
           </View>
@@ -23,7 +25,7 @@ const styles = StyleSheet.create({
     height: '100%',
     },
     divLogin: {
-      marginTop: 200,
+      marginTop: 150,
     },
 
 });

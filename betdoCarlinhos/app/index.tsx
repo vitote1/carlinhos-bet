@@ -10,17 +10,13 @@ import FerraduraIcon from '../comp/ferraduraIcon';
 import FerraduraIconCamada2 from '../comp/ferraduraIconCamada2';
 export default function Index() {
 
-const router = useRouter();
+  const router = useRouter();
 
 
 
   return (
 
     <View style={styles.container}>
-      <Back style={StyleSheet.absoluteFill}/>
-        <View >
-          <TrevoTop />
-        </View>
 
         <View>
           <CarlinhosIcone width={120} height={160} topCarlinhos={64}/>
@@ -32,8 +28,11 @@ const router = useRouter();
         <View style={styles.ferradura2}> 
           <FerraduraIconCamada2 width={252} height={110} top={135} />
 
-        </View>
+      </View>
+      <View style={styles.ferradura2}>
+        <FerraduraIconCamada2 />
 
+      </View>
 
         <View style={styles.divLogo}>
           <Logo/>
@@ -47,12 +46,18 @@ const router = useRouter();
 }
 
 const styles = StyleSheet.create({
-    ferradura1: {
-      zIndex:1,
-    },
-    ferradura2: {
-      zIndex:3,
-    },
+  carlinhos: {
+    position: 'absolute',
+    zIndex: 1,
+  },
+  ferradura1: {
+    position: 'absolute',
+    zIndex: 2,
+  },
+  ferradura2: {
+    position: 'absolute',
+    zIndex: 3,
+  },
 
   container: {
     flex: 1,
