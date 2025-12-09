@@ -1,21 +1,24 @@
 
+import { Button } from '@react-navigation/elements';
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { useRouter } from 'expo-router';
 
 const MenuOption = () => {
+  const router = useRouter();
   return (
     <View style={styles.container}>
       <View style={styles.button}>
-        <Text style={styles.buttonText}>Sacar Saldo</Text>
+        <Button style={styles.buttonButton}>Sacar Saldo</Button>
       </View>
       <View style={styles.button}>
-        <Text style={styles.buttonText}>Depositar Saldo</Text>
+        <Button style={styles.buttonButton} onPress={() => router.navigate('telaLogin')}>Depositar Saldo</Button>
       </View>
       <View style={styles.button}>
-        <Text style={styles.buttonText}>Informações</Text>
+        <Button style={styles.buttonButton}>Informações</Button>
       </View>
       <View style={styles.button}>
-        <Text style={styles.buttonText}>Ajuda</Text>
+        <Button style={styles.buttonButton}>Ajuda</Button>
       </View>
     </View>
   );

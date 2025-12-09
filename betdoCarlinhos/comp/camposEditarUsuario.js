@@ -5,6 +5,7 @@ import {
     TextInput 
 } from 'react-native';
 import Back from '../comp/background';
+import { Button } from 'react-native-web';
 
 const TelaEditarUsuario = () => {
     const [email, setEmail] = useState('');
@@ -40,6 +41,12 @@ const TelaEditarUsuario = () => {
                     keyboardType="numeric"
                 />
             </View>
+           <Button 
+            style={styles.botaoEditar}
+            title="Alterar"
+    
+            onPress={() => console.log('Botão pressionado')}
+/>
         </View>
     );
 }
