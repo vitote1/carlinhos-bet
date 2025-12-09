@@ -33,10 +33,10 @@ const adicionarUsuario = async (nome, novoEmail, senha, cpf) => {
     return novoUser;
 };
 
-const verificarExistencia = async (email, cpf) => {
+const verificarExistencia = async (email, senha) => {
     const usuarios = await listarUsers();
     return usuarios.some(
-        (user) => (user.email === email || user.cpf === cpf) 
+        (user) => (user.email === email && user.senha === senha) 
     );
 };
 

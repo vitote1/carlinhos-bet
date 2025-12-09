@@ -8,16 +8,34 @@ import { adicionarUsuario } from '../service/betService';
 const Cadastro = () => {
 
     const router = useRouter();
-    
+
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [cpf, setCpf] = useState('');
     const [senha, setSenha] = useState('');
     const [confirmarSenha, setConfirmarSenha] = useState('');
 
+
+
     const fazerCadastro = async () => {
+        
+         if (!nome.trim() || !email.trim() || !cpf.trim() || !senha.trim() || !confirmarSenha.trim()) {
+            alert("Preencha todos os campos");
+            return;
+        }
+
         if (senha !== confirmarSenha) {
             alert('As senhas não coincidem');
+            return;
+
+        }
+        if (cpf.length > 11 || cpf.length < 11) {
+            alert('CPF informado inválido');
+            return;
+        }
+
+        if (/[a-zA-Z]/.test(cpf)) {
+            alert('CPF pode conter apenas números');
             return;
         }
         await adicionarUsuario(nome, email, senha, cpf);

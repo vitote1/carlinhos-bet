@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Image, StatusBar as RNStatusBar } from 'react-native';
+import { Text, View, StyleSheet, Image, StatusBar as RNStatusBar, ScrollView } from 'react-native';
 import React from 'react';
 import Back from '../comp/background';
 import { useRouter } from 'expo-router';
@@ -6,9 +6,13 @@ import { StatusBar } from 'expo-status-bar';
 import NavBar from '../comp/navBarSalUser';
 import Carlos from '../comp/carlosComplet';
 import Aposta from '../comp/apostas1';
+import { useState } from 'react';
+
 export default function Index() {
 
     const router = useRouter();
+    const [triggerAtt, setTriggerAtt] = useState(0);
+    const atualizarSaldoNavBar = () => setTriggerAtt(prev => prev + 1);
 
 
 
@@ -17,26 +21,27 @@ export default function Index() {
         <View style={styles.container}>
             <StatusBar style="dark" />
             <Back style={StyleSheet.absoluteFill} />
-            <NavBar/>
-            <Carlos/>
-            <Aposta/>
+            <ScrollView 
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
+                >
+                <NavBar triggerAtt={triggerAtt}/>
+                <Carlos />
+
+                <View style={styles.aposta}>
+                    <Aposta setTriggerAtt={atualizarSaldoNavBar}/>
+                </View>
+            </ScrollView>
 
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    playIcon: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 10,
-        marginTop: 320,  
-    },
-
-
+   
     ferradura1: { zIndex: 1 },
     ferradura2: { zIndex: 3 },
-    carlinhosIcone: { zIndex: 10,},
+    carlinhosIcone: { zIndex: 10, },
 
     container: {
         flex: 1,
@@ -44,4 +49,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
     },
+    aposta: {
+        marginTop: 140,
+    }
 });
