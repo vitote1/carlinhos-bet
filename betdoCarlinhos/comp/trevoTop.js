@@ -3,24 +3,24 @@ import { Image, View, StyleSheet} from "react-native";
 
 const TrevoTop = () => {
     return(
+<View>
         <View style={styles.divtrevo}>
             <Image style={styles.iconeTrevo} source={require("../assets/images/trevosTopIcon.png")}></Image>
         </View>
+</View>
+
     )
 }
 
 const styles = StyleSheet.create({
     divtrevo: { 
         alignItems: 'center',
-        marginTop: 100,
         flex: 1,  
     },
     iconeTrevo: {
         alignSelf: 'center',
         width: 430,
-        marginTop: 1,
         height: 168,
-        position: 'absolute',
     },
 })
 

@@ -3,10 +3,9 @@ import React from 'react';
 import Back from '../comp/background';
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import CarlosComplet from '../comp/carlosComplet';
-import DivJogos from '../comp/divjogos';
 import NavBar from '../comp/navBarSalUser';
-
+import Carlos from '../comp/carlosComplet';
+import Aposta from '../comp/apostas1';
 export default function Index() {
 
     const router = useRouter();
@@ -18,18 +17,10 @@ export default function Index() {
         <View style={styles.container}>
             <StatusBar style="dark" />
             <Back style={StyleSheet.absoluteFill} />
-            <NavBar />
-            <View style={styles.divLogo}>
-                <CarlosComplet />
-                <View style={styles.playIcon}>
-                    <Image source={require("../assets/images/playIcon1.png")} style={{width: 25, height: 25}}></Image>
-                    <Text style={{ fontSize: 26, color: '#ffffff', fontWeight: 'bold' }}>Jogos em destaque</Text>
-                </View>
+            <NavBar/>
+            <Carlos/>
+            <Aposta/>
 
-                <View style={styles.divJogos}>
-                    <DivJogos />
-                </View>
-            </View>
         </View>
     );
 }
@@ -40,8 +31,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 10,
         marginTop: 320,  
-        width: '80%',
-        marginLeft: '10%',
     },
 
     divJogos: {
@@ -58,8 +47,5 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         height: '100%',
-        marginTop: RNStatusBar.currentHeight,
     },
 });
-
-

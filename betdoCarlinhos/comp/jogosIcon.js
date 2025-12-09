@@ -3,7 +3,7 @@ import React from 'react';
 import { useRouter } from 'expo-router';
 import BotaoIniciarJogo from '../comp/botaoIniciarJogo.js';
 
-const jogosIcon = (nome, tipo, fotoSource, id) => {
+const jogosIcon = (nome, tipo, fotoSource, jogoInfoid) => {
 
     const router = useRouter();
 
@@ -13,15 +13,17 @@ const jogosIcon = (nome, tipo, fotoSource, id) => {
             <View style={styles.iconeJogo}>
                 <Image style={styles.imagemJogo} source={fotoSource}></Image>
             </View >
-            <View style={styles.jogoInfo}>  
-                <Text style={{color:'#FFFFFF', fontSize:18,}}>{nome}</Text>
-                <Text style={{color:'#FFFFFF', fontSize:14, fontWeight:'bold'}}>{tipo}</Text>
-                
+            <View style={styles.jogoInfo}>
+                <View style={styles.title}>
+                    <Text style={styles.titleText}>{nome}</Text>
+                </View>
+                <View style={styles.tipoJogo}>
+                    <Text style={styles.tipoText}>{tipo}</Text>
+                </View>
             </View>
-
-            <View> 
+            <TouchableOpacity onPress={() => router.push(`/${jogoInfoid}`)} activeOpacity={0.7} >
                 <BotaoIniciarJogo />
-            </View>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -29,39 +31,63 @@ export default jogosIcon;
 
 const styles = StyleSheet.create({
     divJogosIcon: {
-        flexDirection:'row',
-        backgroundColor: '#080B14',
-        borderColor:'#ddddddff',
-        height: 120,
-        width: 300,  
+        flexDirection: 'row',
+        alignItems: 'center',
+        padding: 15,
         borderWidth: 2,
-        borderRadius: 20,
-        alignSelf: 'center',
-        marginTop:40,
-        marginBottom:10,
+        borderColor: '#666666',
+        borderRadius: 15,
+        width: '95%',
+        marginLeft: '2.5%',
+        height: 130,
     },
-    iconeJogo:{
-        alignContent:'center',
-        alignItems:'center',
-        justifyContent:'center',    
-        alignSelf:'center',
-        height:'85%',
-        width:'30%',  
-        marginLeft:7,   
-        marginBottom:10,
+    iconeJogo: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '35%',
+        height: '100%',
     },
-    jogoInfo:{
-        flexDirection:'column',
-        rowGap:'40%',
-        width:'50%',
-        height:'80%',
-        color:'#FFFFFF',
-        marginTop:7,
-        justifyContent:'center',   
+    jogoInfo: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        width: '50%',
+        gap: 15,
     },
-    imagemJogo:{
-        height:'80%',
-        width:'80%',  
-        borderRadius:12,
-    },  
- });
+    title: {
+        backgroundColor: '#2c1ea541',
+        padding: 5,
+        borderRadius: 10,
+        alignItems: 'center',
+        alignSelf: 'flex-start',
+        marginLeft: 5,
+        paddingLeft: 10,
+    },
+    titleText: {
+        fontSize: 15,
+        color: '#ffffff',
+        fontWeight: '500',
+        display: 'flex',
+    },
+    tipoJogo: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        display: 'flex',
+        alignSelf: 'flex-start',
+        marginBottom: 10,
+    },
+    tipoText: {
+        fontSize: 15,
+        color: '#ffffffff',
+        marginTop: 5,
+        fontWeight: 'bold',
+        marginLeft: 10,
+    },
+    imagemJogo: {
+        height: '100%',
+        width: '100%',
+        borderRadius: 15,
+    },
+});

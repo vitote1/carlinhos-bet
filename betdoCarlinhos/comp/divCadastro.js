@@ -1,12 +1,28 @@
 import { Text, View, StyleSheet, TextInput, Button, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useRouter } from 'expo-router';
+import { useState } from 'react';
+import { adicionarUsuario } from '../service/betService';
 
 
 const Cadastro = () => {
 
     const router = useRouter();
+    
+    const [nome, setNome] = useState('');
+    const [email, setEmail] = useState('');
+    const [cpf, setCpf] = useState('');
+    const [senha, setSenha] = useState('');
+    const [confirmarSenha, setConfirmarSenha] = useState('');
 
+    const fazerCadastro = async () => {
+        if (senha !== confirmarSenha) {
+            alert('As senhas não coincidem');
+            return;
+        }
+        await adicionarUsuario(nome, email, senha, cpf);
+        router.navigate('telaLogin');
+    };
 
     return (
         <View style={styles.divLogin}>
@@ -26,6 +42,8 @@ const Cadastro = () => {
                         <TextInput style={styles.input}
                             placeholder='Seu nome'
                             placeholderTextColor="#b3b3b3ff"
+                            value={nome}
+                            onChangeText={setNome}
                         >
                         </TextInput>
                     </View>
@@ -40,6 +58,8 @@ const Cadastro = () => {
                         <TextInput style={styles.input}
                             placeholder='seu@email.com'
                             placeholderTextColor="#b3b3b3ff"
+                            value={email}
+                            onChangeText={setEmail}
                         >
                         </TextInput>
                     </View>
@@ -54,6 +74,8 @@ const Cadastro = () => {
                         <TextInput style={styles.input}
                             placeholder='000.000.000-00'
                             placeholderTextColor="#b3b3b3ff"
+                            value={cpf}
+                            onChangeText={setCpf}
                         >
                         </TextInput>
                     </View>
@@ -69,6 +91,8 @@ const Cadastro = () => {
                             placeholder='Crie uma senha'
                             placeholderTextColor="#b3b3b3ff"
                             secureTextEntry={true}
+                            value={senha}
+                            onChangeText={setSenha}
                         >
                         </TextInput>
                     </View>
@@ -84,12 +108,14 @@ const Cadastro = () => {
                             placeholder='Confirme sua senha'
                             placeholderTextColor="#b3b3b3ff"
                             secureTextEntry={true}
+                            value={confirmarSenha}
+                            onChangeText={setConfirmarSenha}
                         >
                         </TextInput>
                     </View>
                 </View>
                 <View style={styles.divBotao}>
-                    <TouchableOpacity style={styles.botaoLogar}>
+                    <TouchableOpacity style={styles.botaoLogar} onPress={() => fazerCadastro()}>
                         <Text style={styles.textBotao}>Cadastrar</Text>
                     </TouchableOpacity>
                 </View>

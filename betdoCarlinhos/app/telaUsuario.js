@@ -2,17 +2,17 @@
 import React from 'react';
 import { View, StyleSheet, StatusBar as RNStatusBar } from 'react-native';
 import Back from '../comp/background';
-import Cabecalho from '../comp/cabecalho';
 import UserHeader from '../comp/userHeader';
 import MenuOption from '../comp/menuOption';
 import { StatusBar } from 'expo-status-bar';
+import NavBar from '../comp/navBarSalUser';
 
 const TelaUsuario = () => {
   return (
     <View style={styles.screen}>
       <StatusBar style="dark" />
       <Back style={styles.background} />
-      <Cabecalho />
+      <NavBar />
       <View style={styles.content}>
         <UserHeader />
         <MenuOption />

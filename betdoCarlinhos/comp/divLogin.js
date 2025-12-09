@@ -1,12 +1,30 @@
 import { Text, View, StyleSheet, TextInput, Button, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useRouter } from 'expo-router';
+import { listarUsers } from '../service/betService';
+import { useState } from 'react';
 
 
 const Login = () => {
 
     const router = useRouter();
 
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+
+    const fazerLogin = async () => {
+        const usuario = await listarUsers();
+        const usuarioEncontrado = usuario.find(
+            (u) => u.email === email && u.senha === senha
+        );
+        console.log(usuarioEncontrado)
+
+        if (usuarioEncontrado) {
+            router.navigate('telaDeJogos');
+        } else {
+            alert('Usuário ou senha inválidos');
+        }
+    };
 
     return (
         <View style={styles.divLogin}>
@@ -26,6 +44,8 @@ const Login = () => {
                         <TextInput style={styles.input}
                             placeholder='seu@email.com'
                             placeholderTextColor="#b3b3b3ff"
+                            value={email}
+                            onChangeText={setEmail}
                         >
                         </TextInput>
                     </View>
@@ -41,13 +61,15 @@ const Login = () => {
                             placeholder='Crie uma senha'
                             placeholderTextColor="#b3b3b3ff"
                             secureTextEntry={true}
+                            value={senha}
+                            onChangeText={setSenha}
                         >
                         </TextInput>
                     </View>
                 </View>
                 <View style={styles.divBotao}>
-                    
-                    <TouchableOpacity style={styles.botaoLogar} onPress={() => router.navigate('telaDeJogos')}>
+
+                    <TouchableOpacity style={styles.botaoLogar} onPress={() => fazerLogin()}>
                         <Text style={styles.textBotao}>Logar</Text>
                     </TouchableOpacity>
                 </View>
