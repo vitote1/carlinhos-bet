@@ -8,19 +8,6 @@ const symbols = [
   require('../assets/images/coritias.png')
 ];
 
-function verificarLinha(line) {
-  if (line.every(symbol => symbol === line[0])) {
-    return line[0]; 
-  }
-  return null;
-}
-function verificarTodosIguais(reels) {
-  const flat = reels.flat();
-  if (flat.every(symbol => symbol === flat[0])) {
-    return flat[0];
-  }
-  return null;
-}
 
 export default function Jackpot({acionarFuncao}) {
   const [reels, setReels] = useState([

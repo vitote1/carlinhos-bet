@@ -1,8 +1,35 @@
 
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const MenuOption = () => {
+const sair = () => {
+    Alert.alert(
+      "Confirmar saída",
+      "Deseja realmente sair?",
+      [
+        {
+          text: "Cancelar",
+          style: "cancel"
+        },
+        {
+          text: "Sair",
+          style: "destructive",
+          onPress: async () => {
+            try {
+              await AsyncStorage.removeItem('usuarioLogado'); 
+              router.push('/teaLogin');
+            } catch (e) {
+              console.error('Erro ao sair:', e);
+            }
+          }
+        }
+      ]
+    );
+  };
+
+
   return (
     <View style={styles.container}>
       <View style={styles.button}>
@@ -16,6 +43,9 @@ const MenuOption = () => {
       </View>
       <View style={styles.button}>
         <Text style={styles.buttonText}>Ajuda</Text>
+      </View>
+      <View style={styles.button}>
+        <Text style={styles.buttonText}>Sair</Text>
       </View>
     </View>
   );

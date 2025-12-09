@@ -14,7 +14,6 @@ const Aposta = ({ setTriggerAtt }) => {
     const [valor, setValor] = useState("");
     const [valorBruto, setValorBruto] = useState(0);
     const [multiplicador, setMultiplicador] = useState('2');
-    const [simboloGanho, setSimboloGanho] = useState(null);
 
 
     function formatarMoeda(text) {
@@ -58,7 +57,7 @@ const Aposta = ({ setTriggerAtt }) => {
         <View style={styles.divPai}>
             <View style={styles.jack}>
 
-                <Roleta acionarFuncao={triggerSpin} enviarResultado={setSimboloGanho} />
+                <Roleta acionarFuncao={triggerSpin} />
 
             </View>
 
