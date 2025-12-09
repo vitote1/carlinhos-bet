@@ -33,10 +33,6 @@ const styles = StyleSheet.create({
         marginTop: 320,  
     },
 
-    divJogos: {
-        alignItems: 'center',
-        marginTop: 20,  
-    },
 
     ferradura1: { zIndex: 1 },
     ferradura2: { zIndex: 3 },
