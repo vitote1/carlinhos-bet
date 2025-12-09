@@ -1,25 +1,24 @@
-
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useRouter } from "expo-router";
 
 const MenuOption = () => {
-const sair = () => {
+  const router = useRouter(); 
+
+  const sair = () => {
     Alert.alert(
       "Confirmar saída",
       "Deseja realmente sair?",
       [
-        {
-          text: "Cancelar",
-          style: "cancel"
-        },
+        { text: "Cancelar", style: "cancel" },
         {
           text: "Sair",
           style: "destructive",
           onPress: async () => {
             try {
-              await AsyncStorage.removeItem('usuarioLogado'); 
-              router.push('/teaLogin');
+              await AsyncStorage.removeItem('usuarioLogado');
+              router.push('/teaLogin'); // ← Agora funciona
             } catch (e) {
               console.error('Erro ao sair:', e);
             }
@@ -28,7 +27,6 @@ const sair = () => {
       ]
     );
   };
-
 
   return (
     <View style={styles.container}>
@@ -44,27 +42,26 @@ const sair = () => {
       <View style={styles.button}>
         <Text style={styles.buttonText}>Ajuda</Text>
       </View>
-      <View style={styles.button}>
+
+      <TouchableOpacity style={styles.button} onPress={sair}>
         <Text style={styles.buttonText}>Sair</Text>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-  // Se alguém colocar flex nessa bosta eu mato, e eu não estou brincando
-  padding: 10,
-  backgroundColor: '#060B15',
-  marginHorizontal: 10,
-  borderRadius: 10,
-},
+    padding: 10,
+    backgroundColor: '#060B15',
+    marginHorizontal: 10,
+    borderRadius: 10,
+  },
   button: {
     backgroundColor: '#081A62',
     padding: 12,
     borderRadius: 6,
     marginVertical: 4,
-    
   },
   buttonText: {
     fontSize: 16,
