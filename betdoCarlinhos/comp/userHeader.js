@@ -1,21 +1,31 @@
 // comp/userHeader.js
 
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
 const UserHeader = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.circleImageContainer}>
-        <Image
-          source={require('../assets/images/cavalo.jpg')}
-          style={styles.cavaloImage}
-          resizeMode="cover"
-        />
+      {/* Primeira linha: Imagem e texto */}
+      <View style={styles.topRow}>
+        <View style={styles.circleImageContainer}>
+          <Image
+            source={require('../assets/images/cavalo.jpg')}
+            style={styles.cavaloImage}
+            resizeMode="cover"
+          />
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.name}>Usuario</Text>
+          <Text style={styles.email}>usuario@gmail.com</Text>
+        </View>
       </View>
-      <View style={styles.textContainer}>
-        <Text style={styles.name}>Usuario</Text>
-        <Text style={styles.email}>usuario@gmail.com</Text>
+      
+      {/* Segunda linha: Botão de editar */}
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.editButton}>
+          <Text style={styles.editButtonText}>Editar</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -23,15 +33,12 @@ const UserHeader = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 20, //Duas horas para ser essa merda
+    padding: 20, /* Duas horas para ser essa merda */
     marginHorizontal: 16,
     marginBottom: 30,
     marginTop: 20,
     backgroundColor: '#6e6e6eff',
     borderRadius: 12,
-    
 
     shadowColor: '#000',
     shadowOffset: {
@@ -41,6 +48,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 5,
     elevation: 6,
+  },
+  topRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 15, 
   },
   circleImageContainer: {
     width: 70,
@@ -80,6 +92,30 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#aaa',
   },
+  buttonContainer: {
+    alignItems: 'center',
+  },
+  editButton: {
+    backgroundColor: '#6d6c6c',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 6,
+    width: '100%',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.5,
+    elevation: 2,
+  },
+  editButtonText: {
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: '500',
+  }
 });
 
 export default UserHeader;
