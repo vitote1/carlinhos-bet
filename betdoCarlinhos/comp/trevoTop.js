@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
             },
     iconeTrevo: {
         alignSelf: 'center',
-        width: 410,
+        width: 460,
         marginTop:0,
         height: 350,
         position: 'absolute',

@@ -1,20 +1,18 @@
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, StatusBar as RNStatusBar } from 'react-native';
 import React from 'react';
 import Back from '../comp/background';
 import Cadastro from '../comp/divCadastro';
 import NavBar from '../comp/navBar';
+import { StatusBar } from 'expo-status-bar';
 export default function Index() {
   return (
     <View style={styles.container}>
+      <StatusBar style="dark" />
       <Back style={StyleSheet.absoluteFill} />
        <NavBar />
-      <ScrollView 
-        showsVerticalScrollIndicator={false}
-      >
         <View style={styles.divCadastro}>
           <Cadastro />
         </View>
-      </ScrollView>
     </View>
   );
 }
@@ -25,9 +23,9 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     alignItems: 'center',
+    paddingTop: RNStatusBar.currentHeight,
   },
   divCadastro: {
-    marginTop: 200,
-    marginBottom: 200,
+    marginTop: 150,
   },
 });

@@ -1,14 +1,16 @@
 
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, StatusBar as RNStatusBar } from 'react-native';
 import Back from '../comp/background';
 import Cabecalho from '../comp/cabecalho';
 import UserHeader from '../comp/userHeader';
 import MenuOption from '../comp/menuOption';
+import { StatusBar } from 'expo-status-bar';
 
 const TelaUsuario = () => {
   return (
     <View style={styles.screen}>
+      <StatusBar style="dark" />
       <Back style={styles.background} />
       <Cabecalho />
       <View style={styles.content}>
@@ -22,6 +24,7 @@ const TelaUsuario = () => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+    paddingTop: RNStatusBar.currentHeight,
   },
   background: {
     ...StyleSheet.absoluteFillObject,

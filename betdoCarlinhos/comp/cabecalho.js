@@ -1,10 +1,12 @@
 
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
 const Cabecalho = () => {
   return (
     <View style={styles.container}>
+      <StatusBar style="dark" />
       <View style={styles.leftSection}>
         <View style={styles.setaContainer}>
           <Image

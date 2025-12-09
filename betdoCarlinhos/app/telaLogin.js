@@ -1,12 +1,14 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { View, StyleSheet, StatusBar as RNStatusBar } from 'react-native';
 import React from 'react';
 import Back from '../comp/background';
 import Login from '../comp/divLogin';
 import NavBar from '../comp/navBar';
+import { StatusBar } from 'expo-status-bar';
 export default function Index() {
   return (
 
-    <View style={styles.container}>  
+    <View style={styles.container}> 
+    <StatusBar style="dark" />
       <Back style={StyleSheet.absoluteFill}/>
       <NavBar></NavBar>
           <View style={styles.divLogin}>
@@ -23,6 +25,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     height: '100%',
+    paddingTop: RNStatusBar.currentHeight,
     },
     divLogin: {
       marginTop: 150,

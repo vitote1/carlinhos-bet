@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Image } from 'react-native';
+import { Text, View, StyleSheet, Image, StatusBar as RNStatusBar} from 'react-native';
 import React from 'react';
 import Botao from '../comp/botaoJogar';
 import Logo from '../comp/logoCarlinhos';
@@ -8,6 +8,7 @@ import TrevoTop from '../comp/trevoTop';
 import CarlinhosIcone from '../comp/imagemCarlos';
 import FerraduraIcon from '../comp/ferraduraIcon';
 import FerraduraIconCamada2 from '../comp/ferraduraIconCamada2';
+import { StatusBar } from 'expo-status-bar';
 export default function Index() {
 
 const router = useRouter();
@@ -17,6 +18,7 @@ const router = useRouter();
   return (
 
     <View style={styles.container}>
+    <StatusBar style="dark" />
       <Back style={StyleSheet.absoluteFill}/>
         <View  style={styles.divLogo}>
             <View>
@@ -40,6 +42,13 @@ const router = useRouter();
 }
 
 const styles = StyleSheet.create({
+     container: {
+      flex: 1,
+      alignItems: 'center',
+      width: '100%',
+      height: '100%',
+      paddingTop: RNStatusBar.currentHeight,
+    },
     divLogo: {
       
     },

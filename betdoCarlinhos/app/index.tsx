@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, StatusBar as RNStatusBar } from 'react-native';
 import React from 'react';
 import Botao from '../comp/botaoJogar';
 import Logo from '../comp/logoCarlinhos';
@@ -8,6 +8,7 @@ import TrevoTop from '../comp/trevoTop';
 import CarlinhosIcone from '../comp/imagemCarlos';
 import FerraduraIcon from '../comp/ferraduraIcon';
 import FerraduraIconCamada2 from '../comp/ferraduraIconCamada2';
+import { StatusBar } from 'expo-status-bar';
 export default function Index() {
 
   const router = useRouter();
@@ -17,8 +18,10 @@ export default function Index() {
   return (
 
     <View style={styles.container}>
+      <StatusBar style="dark" />
       <Back style={StyleSheet.absoluteFill} />
-        <View>
+      <TrevoTop/>
+        <View style={styles.carlinhos}>
           <CarlinhosIcone width={120} height={160} topCarlinhos={64}/>
         </View>
         <View style={styles.ferradura1}> 
@@ -44,7 +47,7 @@ export default function Index() {
 const styles = StyleSheet.create({
   carlinhos: {
     position: 'absolute',
-    zIndex: 1,
+    zIndex: 10,
   },
   ferradura1: {
     position: 'absolute',
@@ -60,7 +63,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     height: '100%',
-
+    paddingTop: RNStatusBar.currentHeight,
   },
   divBotao: {
     marginTop: 300,

@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     },
     textBotao: {
         color: 'white',
-        fontSize: 18,
+        fontSize: 22,
         fontWeight: 'bold',
     },
     linkCadastro: {
@@ -184,13 +184,13 @@ const styles = StyleSheet.create({
         gap: 6,
     },
     textCadastro: {
-        fontSize: 15,
+        fontSize: 17,
         color: '#000000',
         fontWeight: '500',
     },
     botaoCadastro: {
         color: "#001FEB",
-        fontSize: 15,
+        fontSize: 17,
         fontWeight: '500',
     },
 });
