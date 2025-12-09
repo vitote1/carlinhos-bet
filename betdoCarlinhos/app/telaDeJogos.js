@@ -1,13 +1,13 @@
 import { Text, View, StyleSheet, Image } from 'react-native';
 import React from 'react';
-import Botao from '../comp/botaoJogar';
-import Logo from '../comp/logoCarlinhos';
 import Back from '../comp/background';
 import { useRouter } from 'expo-router';
 import TrevoTop from '../comp/trevoTop';
 import CarlinhosIcone from '../comp/imagemCarlos';
 import FerraduraIcon from '../comp/ferraduraIcon';
 import FerraduraIconCamada2 from '../comp/ferraduraIconCamada2';
+import DivJogos from '../comp/divjogos';
+
 export default function Index() {
 
 const router = useRouter();
@@ -31,8 +31,16 @@ const router = useRouter();
             <View style={styles.ferradura2}>  
                 <FerraduraIconCamada2 width={200} height={84} top={113}/>
             </View>
-            <View>
+            
+            <View style={styles.playIcon}>
                 <Image source={require("../assets/images/playIcon1.png")}></Image>
+                <Text style={{ fontSize: 26, color:'#ffffff', fontWeight: 'bold'}}>  Jogos em destaque</Text>
+            </View>
+
+            <View style={styles.divJogos}>    
+                
+                <DivJogos/> 
+                
             </View>
         </View>
     </View>
@@ -40,7 +48,22 @@ const router = useRouter();
 }
 
 const styles = StyleSheet.create({
-    divLogo: {
+    playIcon:{ 
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderRadius: 20,
+        width:400,
+        position: 'absolute',
+        marginTop: 340,
+        marginLeft: '-43%',
+    },
+    divJogos: { 
+        
+        display:'flex',
+        alignItems: 'center',
+        
+        marginTop:400,
+        
       
     },
 
