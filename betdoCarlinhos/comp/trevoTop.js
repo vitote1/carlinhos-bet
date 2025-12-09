@@ -19,9 +19,9 @@ const styles = StyleSheet.create({
             },
     iconeTrevo: {
         alignSelf: 'center',
-        width: 410,
-        marginTop:0,
-        height: 350,
+        width: 430,
+        marginTop:1,
+        height: 168,
         position: 'absolute',
     },
 })
