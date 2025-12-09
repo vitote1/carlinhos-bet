@@ -1,11 +1,8 @@
 
-import { Button } from '@react-navigation/elements';
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { useRouter } from 'expo-router';
 
 const MenuOption = () => {
-  const router = useRouter();
   return (
     <View style={styles.container}>
       <View style={styles.button}>
@@ -20,24 +17,26 @@ const MenuOption = () => {
       <View style={styles.button}>
         <Button style={styles.buttonButton}>Ajuda</Button>
       </View>
+
+      <TouchableOpacity style={styles.button} onPress={sair}>
+        <Text style={styles.buttonText}>Sair</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-  // Se alguém colocar flex nessa bosta eu mato, e eu não estou brincando
-  padding: 10,
-  backgroundColor: '#060B15',
-  marginHorizontal: 10,
-  borderRadius: 10,
-},
+    padding: 10,
+    backgroundColor: '#060B15',
+    marginHorizontal: 10,
+    borderRadius: 10,
+  },
   button: {
     backgroundColor: '#081A62',
     padding: 12,
     borderRadius: 6,
     marginVertical: 4,
-    
   },
   buttonText: {
     fontSize: 16,

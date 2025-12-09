@@ -1,7 +1,9 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import {userEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import { useRouter } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const Imagem = require('../assets/images/setaback.png');
 const cavalo = require('../assets/images/iconeCavalo.png');
@@ -9,6 +11,17 @@ const NavBar = () => {
   const router = useRouter();
 
   const [saldo, setSaldo] = useState(0);
+  useEffect(() => {
+    const pegarSaldo = async () => {
+      const user = await AsyncStorage.getItem('usuarioLogado');
+      if (user) {
+        const usuario = JSON.parse(user);
+        setSaldo(usuario.saldo); 
+      }
+    };
+
+    pegarSaldo();
+  }, []);
 
 
 

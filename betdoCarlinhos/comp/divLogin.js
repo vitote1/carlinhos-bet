@@ -3,6 +3,8 @@ import React from 'react';
 import { useRouter } from 'expo-router';
 import { listarUsers } from '../service/betService';
 import { useState } from 'react';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 
 const Login = () => {
@@ -21,6 +23,7 @@ const Login = () => {
 
         if (usuarioEncontrado) {
             router.navigate('telaDeJogos');
+            await AsyncStorage.setItem("usuarioLogado", JSON.stringify(usuarioEncontrado));
         } else {
             alert('Usuário ou senha inválidos');
         }
