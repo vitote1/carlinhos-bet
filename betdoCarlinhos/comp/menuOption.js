@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const MenuOption = () => {
   const router = useRouter();
 
   function sair() {
-    // aqui você coloca a lógica de logout
+    AsyncStorage.removeItem('usuarioLogado');
     router.replace('/telaLogin');
   }
 
@@ -31,7 +32,6 @@ const MenuOption = () => {
         <Text style={styles.buttonText}>Ajuda</Text>
       </TouchableOpacity>
 
-      {/* Botão de sair */}
       <TouchableOpacity style={styles.button} onPress={sair}>
         <Text style={styles.buttonText}>Sair</Text>
       </TouchableOpacity>
