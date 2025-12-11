@@ -2,6 +2,7 @@ import { View, StyleSheet } from 'react-native';
 import React from 'react';
 import Back from '../comp/background';
 import NavBar from '../comp/navBar';
+import BotoesCavalosAposta from '../comp/botoesApostaCavalo';
 
 const TelaStellBallRun = () => {
     return (
@@ -9,6 +10,9 @@ const TelaStellBallRun = () => {
             <Back />
             <View style={styles.navBarContainer}>
                 <NavBar onSaldo={1} onUsuario={1} />
+            </View>
+            <View>
+              <BotoesCavalosAposta />
             </View>
         </View>
     );

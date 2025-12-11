@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
 
 const BotoesCavalosAposta = () => {
   const cavalos = [
@@ -10,15 +10,17 @@ const BotoesCavalosAposta = () => {
     { id: 5, nome: 'Cavalo 5', preco: 'R$40,00', multiplicador: '0,6x' },
     { id: 6, nome: 'Cavalo 6', preco: 'R$40,00', multiplicador: '1,2x' },
   ];
-
+  
   return (
-    <ScrollView 
-      style={styles.container}
-      contentContainerStyle={styles.scrollContent}
-      showsVerticalScrollIndicator={false}
-    >
-      {cavalos.map((cavalo) => (
-        <View key={cavalo.id} style={styles.card}>
+    <View style={styles.container}>
+      <ScrollView 
+        style={styles.scrollViewInner}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+      <View style={styles.gridContainer}>
+        {cavalos.map((cavalo) => (
+          <View key={cavalo.id} style={styles.card}>
 
           <View style={styles.cardHeader}>
             <Text style={styles.cavaloNome}>{cavalo.nome}</Text>
@@ -32,13 +34,21 @@ const BotoesCavalosAposta = () => {
           </View>
           
           <View style={styles.cardFooter}>
-            <View style={styles.selecionarButton}>
+            <Pressable 
+              style={({ pressed }) => [
+                styles.selecionarButton,
+                pressed && styles.selecionarButtonPressed
+              ]}
+              onPress={() => console.log('Cavalo', cavalo.id, 'selecionado')}
+            >
               <Text style={styles.selecionarText}>SELECIONAR</Text>
-            </View>
+            </Pressable>
           </View>
         </View>
-      ))}
-    </ScrollView>
+        ))}
+      </View>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -48,16 +58,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#0D1740',
   },
   scrollContent: {
-    padding: 16,
-    paddingBottom: 32,
+    padding: 12,
+    paddingBottom: 20,
+  },
+  gridContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    gap: 10,
   },
   card: {
     backgroundColor: '#1A1F3E',
     borderRadius: 12,
-    padding: 16,
-    marginBottom: 16,
+    padding: 12,
+    marginBottom: 8,
     borderWidth: 1,
     borderColor: '#2A2F4E',
+    width: '31%',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -71,32 +88,33 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 6,
   },
   cavaloNome: {
     color: '#FFFFFF',
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
   },
   multiplicadorContainer: {
-    backgroundColor: '#FFD700',
-    paddingHorizontal: 12,
-    paddingVertical: 4,
-    borderRadius: 20,
-    minWidth: 50,
+    backgroundColor: '#6C63FF',
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 8,
+    minWidth: 35,
     alignItems: 'center',
   },
   multiplicadorText: {
-    color: '#000',
-    fontSize: 14,
+    color: '#FFFFFF',
+    fontSize: 10,
     fontWeight: 'bold',
   },
   precoContainer: {
-    marginBottom: 16,
+    marginBottom: 6,
+    marginTop: 8,
   },
   preco: {
     color: '#4CAF50',
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
   },
@@ -104,18 +122,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   selecionarButton: {
-    backgroundColor: '#2196F3',
-    paddingHorizontal: 24,
-    paddingVertical: 10,
-    borderRadius: 8,
+    backgroundColor: '#6C63FF',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 4,
     width: '100%',
     alignItems: 'center',
   },
+  selecionarButtonPressed: {
+    backgroundColor: '#5A54D4',
+    opacity: 0.9,
+  },
   selecionarText: {
     color: '#FFFFFF',
-    fontSize: 14,
+    fontSize: 9,
     fontWeight: 'bold',
-    letterSpacing: 0.5,
+    letterSpacing: 0.1,
   },
 });
 
