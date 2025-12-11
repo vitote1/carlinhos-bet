@@ -5,32 +5,32 @@ import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import CarlosComplet from '../comp/carlosComplet';
 import DivJogos from '../comp/divjogos';
-import NavBar from '../comp/navBarSalUser';
+import NavBar from '../comp/navBar';
 
 export default function Index() {
 
     const router = useRouter();
-
-
 
     return (
 
         <View style={styles.container}>
             <StatusBar style="dark" />
             <Back style={StyleSheet.absoluteFill} />
-            <NavBar />
-                <CarlosComplet />
+            <NavBar onSaldo={1} onUsuario={1} />
+            <CarlosComplet />
+            <View style={styles.divLogo}>
                 <View style={styles.playIcon}>
-                    <Image source={require("../assets/images/playIcon1.png")} style={{width: 25, height: 25}}></Image>
+                    <Image source={require("../assets/images/playIcon1.png")} style={{ width: 25, height: 25 }}></Image>
                     <Text style={{ fontSize: 26, color: '#ffffff', fontWeight: 'bold' }}>Jogos em destaque</Text>
                 </View>
 
                 <View style={styles.divJogos}>
                     <DivJogos />
                 </View>
+            </View>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     playIcon: {
@@ -47,14 +47,13 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        top: 410,
+        top: 370,
         width: '100%',
-        height: '55%',
     },
     divLogo: {
         alignItems: 'center',
+        gap: 20,
     },
-
     container: {
         flex: 1,
         alignItems: 'center',

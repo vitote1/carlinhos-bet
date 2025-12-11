@@ -1,7 +1,7 @@
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { View, StyleSheet, SafeAreaView } from 'react-native';
+import { View, StyleSheet, StatusBar as RNStatusBar } from 'react-native';
 import TelaDeSaque from '../comp/teladeSaque';
 import Back from '../comp/background';
 import NavBar from '../comp/navBar';
@@ -14,11 +14,9 @@ export default function App() {
     return (
         <View style={styles.container}>
             <StatusBar style="dark" />
-
             <Back style={StyleSheet.absoluteFill} />
-            <View style={{ position: 'absolute', width: '100%', marginTop: 35 }}>
+
             <NavBar />
-            </View>
 
             <View style={styles.divLogo}>
                 <CarlosComplet />

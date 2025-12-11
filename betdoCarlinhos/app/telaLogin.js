@@ -14,7 +14,7 @@ export default function Index() {
           <View style={styles.divLogin}>
             <Login/>
           </View>
-       
+
     </View>
   );
 }

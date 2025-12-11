@@ -1,4 +1,4 @@
-// comp/userHeader.js
+
 
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
@@ -6,7 +6,6 @@ import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 const UserHeader = () => {
   return (
     <View style={styles.container}>
-      {/* Primeira linha: Imagem e texto */}
       <View style={styles.topRow}>
         <View style={styles.circleImageContainer}>
           <Image

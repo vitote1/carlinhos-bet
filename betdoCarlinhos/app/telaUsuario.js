@@ -5,14 +5,14 @@ import Back from '../comp/background';
 import UserHeader from '../comp/userHeader';
 import MenuOption from '../comp/menuOption';
 import { StatusBar } from 'expo-status-bar';
-import NavBar from '../comp/navBarSalUser';
+import NavBar from '../comp/navBar';
 
 const TelaUsuario = () => {
   return (
     <View style={styles.screen}>
       <StatusBar style="dark" />
       <Back style={styles.background} />
-      <NavBar />
+      <NavBar onSaldo = {1}/>
       <View style={styles.content}>
         <UserHeader />
         <MenuOption />

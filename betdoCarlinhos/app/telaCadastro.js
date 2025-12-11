@@ -11,9 +11,7 @@ export default function Index() {
       <StatusBar style={{marginTop: 20, position: 'absolute'}}  />
       <ScrollView style={styles.container} contentContainerStyle={styles.scrollViewContent}>
       <Back style={StyleSheet.absoluteFill} />
-      <View style={{position: 'absolute', width: '100%', marginTop: 35}}>
-       <NavBar/>
-       </View>
+       <NavBar onSaldo = {0} onUsuario = {0} />
         <View style={styles.divCadastro}>
           <Cadastro />
         </View>
@@ -30,7 +28,6 @@ const styles = StyleSheet.create({
     
   },
   scrollViewContent: {
-    
     alignItems: 'center',
     height: '130%',
   },
