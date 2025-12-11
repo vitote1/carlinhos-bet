@@ -25,7 +25,7 @@ const jogosIcon = (nome, tipo, fotoSource, jogoInfoid) => {
                 <BotaoIniciarJogo />
             </TouchableOpacity>
         </View>
-    )
+    );
 }
 export default jogosIcon;
 

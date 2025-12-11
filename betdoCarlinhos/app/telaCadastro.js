@@ -8,10 +8,10 @@ export default function Index() {
   return (
     
     <View style={styles.container}>
-      <StatusBar style={{marginTop: 20, position: 'absolute'}}  />
-      <ScrollView style={styles.container} contentContainerStyle={styles.scrollViewContent}>
+      <StatusBar style="dark" />
       <Back style={StyleSheet.absoluteFill} />
-       <NavBar onSaldo = {0} onUsuario = {0} />
+      <NavBar onSaldo = {0} onUsuario = {0} />
+      <ScrollView style={styles.container} contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.divCadastro}>
           <Cadastro />
         </View>
@@ -25,11 +25,11 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     height: '100%',
-    
+    paddingTop: RNStatusBar.currentHeight,
   },
   scrollViewContent: {
     alignItems: 'center',
-    height: '130%',
+    height: '110%',
   },
   divCadastro: {
     marginTop: 160,

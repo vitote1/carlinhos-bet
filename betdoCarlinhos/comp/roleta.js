@@ -16,17 +16,36 @@ export default function Jackpot({acionarFuncao}) {
     [symbols[2], symbols[0], symbols[1]]
   ]);
 
+  const [rolling, setRolling] = useState(false);
+
+  const [message, setMessage] = useState("Clique em SPIN para começar!");
+
   const spin = () => {
-    console.log('go')
-    const newReels = Array.from({ length: 3 }, () =>
-      Array.from({ length: 3 }, () => {
-        const randomIndex = Math.floor(Math.random() * symbols.length);
-        return symbols[randomIndex];
-      })
-    );
-    setReels(newReels);
+        if (rolling) return;
+        
+        // 1. Inicia a rolagem
+        setRolling(true);
+        setMessage("Rodando...");
+
+        const newReels = reels.map(() => {
+            const randomIndex = Math.floor(Math.random() * symbols.length);
+            return symbols[randomIndex];
+        });
+
+        // 2. Simula a rotação por 2 segundos (2000ms)
+        setTimeout(() => {
+            // 3. Atualiza os rolos após a simulação
+            setReels(newReels);
+            
+            // 4. Finaliza a rolagem
+            setRolling(false);
+            
+            // 5. Verifica o resultado
+            checkWin(newReels);
+        }, 2000); 
+    };
     
-};
+
 
 const checkWin = (currentReels) => {
     if (currentReels[0] === currentReels[1] && currentReels[1] === currentReels[2]) {
