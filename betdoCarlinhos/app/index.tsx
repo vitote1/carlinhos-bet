@@ -40,11 +40,13 @@ const styles = StyleSheet.create({
     paddingTop: RNStatusBar.currentHeight,
   },
   divBotao: {
-    marginTop: 300,
+    position: 'absolute',
+    marginTop: 700,
     alignItems: 'center',
   },
   divLogo: {
-    marginTop: 30,
+    position: 'absolute',
+    marginTop: 230,
   },
 
 });

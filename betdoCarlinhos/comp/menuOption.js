@@ -1,24 +1,37 @@
-
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
-
+import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native';
+import { useRouter } from 'expo-router';
 
 const MenuOption = () => {
+  const router = useRouter();
+
+  function sair() {
+    // aqui você coloca a lógica de logout
+    router.replace('/telaLogin');
+  }
+
   return (
     <View style={styles.container}>
-      <View style={styles.button}>
-        <Button style={styles.buttonButton}>Sacar Saldo</Button>
-      </View>
-      <View style={styles.button}>
-        <Button style={styles.buttonButton} onPress={() => router.navigate('telaLogin')}>Depositar Saldo</Button>
-      </View>
-      <View style={styles.button}>
-        <Button style={styles.buttonButton}>Informações</Button>
-      </View>
-      <View style={styles.button}>
-        <Button style={styles.buttonButton}>Ajuda</Button>
-      </View>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Sacar Saldo</Text>
+      </TouchableOpacity>
 
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => router.push('/telaLogin')}
+      >
+        <Text style={styles.buttonText}>Depositar Saldo</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Informações</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Ajuda</Text>
+      </TouchableOpacity>
+
+      {/* Botão de sair */}
       <TouchableOpacity style={styles.button} onPress={sair}>
         <Text style={styles.buttonText}>Sair</Text>
       </TouchableOpacity>
@@ -43,6 +56,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#fff',
     fontWeight: '500',
+    textAlign: 'center',
   },
 });
 

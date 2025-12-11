@@ -16,11 +16,11 @@ export default function Index() {
         <View style={styles.container}>
             <StatusBar style="dark" />
             <Back style={StyleSheet.absoluteFill} />
-            <NavBar onSaldo = {1} onUsuario = {1}/>
+            <NavBar onSaldo={1} onUsuario={1} />
+            <CarlosComplet />
             <View style={styles.divLogo}>
-                <CarlosComplet />
                 <View style={styles.playIcon}>
-                    <Image source={require("../assets/images/playIcon1.png")} style={{width: 25, height: 25}}></Image>
+                    <Image source={require("../assets/images/playIcon1.png")} style={{ width: 25, height: 25 }}></Image>
                     <Text style={{ fontSize: 26, color: '#ffffff', fontWeight: 'bold' }}>Jogos em destaque</Text>
                 </View>
 
@@ -30,30 +30,31 @@ export default function Index() {
             </View>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     playIcon: {
         flexDirection: 'row',
         alignItems: 'center',
         gap: 10,
-        marginTop: 320,  
-        width: '80%',
-        marginLeft: '10%',
+        marginTop: 200,
+        width: '100%',
+        paddingLeft: '5%',
     },
 
     divJogos: {
+        alignContent: 'center',
         alignItems: 'center',
-        marginTop: 20,  
+        width: '100%',
     },
-
-    ferradura1: { zIndex: 1 },
-    ferradura2: { zIndex: 3 },
-    carlinhosIcone: { zIndex: 10,},
-
+    divLogo: {
+        alignItems: 'center',
+        gap: 20,
+    },
     container: {
         flex: 1,
         alignItems: 'center',
+        alignContent: 'center',
         width: '100%',
         height: '100%',
         marginTop: RNStatusBar.currentHeight,

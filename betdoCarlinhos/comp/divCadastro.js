@@ -30,7 +30,7 @@ const Cadastro = () => {
 
         }
         if (cpf.length > 11 || cpf.length < 11) {
-            alert('CPF informado inválido');
+            alert('CPF informado inválido, informe apenas os numeros (11 dígitos)');
             return;
         }
 
@@ -139,7 +139,7 @@ const Cadastro = () => {
                 </View>
                 <View style={styles.linkCadastro}>
                     <Text style={styles.textCadastro}>Já possui uma conta?</Text>
-                    <TouchableOpacity onPress={() => router.navigate('telaLogin')}> <Text style={styles.botaoCadastro}>Logar-se</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={() => router.navigate('telaLogin')}> <Text style={styles.botaoCadastro}>Fazer login</Text></TouchableOpacity>
                 </View>
             </View>
 
