@@ -9,7 +9,7 @@ export default function Index() {
     <View style={styles.container}>
       <StatusBar style="dark" />
       <Back style={StyleSheet.absoluteFill} />
-       <NavBar />
+       <NavBar onSaldo = {0} onUsuario = {0} />
         <View style={styles.divCadastro}>
           <Cadastro />
         </View>

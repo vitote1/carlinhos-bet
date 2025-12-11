@@ -5,20 +5,18 @@ import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import CarlosComplet from '../comp/carlosComplet';
 import DivJogos from '../comp/divjogos';
-import NavBar from '../comp/navBarSalUser';
+import NavBar from '../comp/navBar';
 
 export default function Index() {
 
     const router = useRouter();
-
-
 
     return (
 
         <View style={styles.container}>
             <StatusBar style="dark" />
             <Back style={StyleSheet.absoluteFill} />
-            <NavBar />
+            <NavBar onSaldo = {1} onUsuario = {1}/>
             <View style={styles.divLogo}>
                 <CarlosComplet />
                 <View style={styles.playIcon}>

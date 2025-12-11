@@ -1,8 +1,7 @@
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { View } from 'react-native-web';
-import { SafeAreaView } from 'react-native';
+import { View, StyleSheet, StatusBar as RNStatusBar } from 'react-native';
 import TelaDeSaque from '../comp/teladeSaque';
 import Back from '../comp/background';
 
@@ -12,9 +11,9 @@ export default function App() {
     <View style={styles.container}>
             <StatusBar style="dark" />
             <Back style={StyleSheet.absoluteFill} />
-            <NavBar />
+            <NavBar onSaldo = {1} onUsuario = {1} />
             <View style={styles.divLogo}>
-                <CarlosComplet />
+                <CarlosComplet/>
                 <View style={styles.divJogos}>
                     <TelaDeSaque />
                 </View>
