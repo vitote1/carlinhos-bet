@@ -6,10 +6,12 @@ import { StatusBar } from 'expo-status-bar';
 import CarlosComplet from '../comp/carlosComplet';
 import DivJogos from '../comp/divjogos';
 import NavBar from '../comp/navBar';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Index() {
 
     const router = useRouter();
+
 
     return (
 
@@ -37,20 +39,17 @@ export default function Index() {
 
 const styles = StyleSheet.create({
     playIcon: {
-        position: 'absolute',
         flexDirection: 'row',
         alignItems: 'center',
         gap: 10,
-        marginTop: 370,  
-        width: '80%',
-        marginLeft: '-7%',
+        marginTop: 200,  
+        width: '100%',
+        paddingLeft: '5%',
     },
 
     divJogos: {
         alignContent: 'center',
         alignItems: 'center',
-        position: 'absolute',
-        top: 370,
         width: '100%',
     },
     divLogo: {

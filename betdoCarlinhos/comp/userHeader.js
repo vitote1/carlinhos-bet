@@ -1,9 +1,34 @@
 
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { useRouter } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const UserHeader = () => {
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('')
+
+  const router = useRouter();
+
+  async function carregarInfo() {
+  try {
+    const userLogadoStr = await AsyncStorage.getItem('usuarioLogado');
+
+    if (!userLogadoStr) return;
+
+    const usuario = JSON.parse(userLogadoStr);
+
+    setNome(usuario.nome);
+    setEmail(usuario.email);
+
+  } catch (e) {
+    console.error("Erro ao carregar usuarioLogado:", e);
+  }
+}
+
+useEffect(() => {
+  carregarInfo();
+}, []);
   return (
     <View style={styles.container}>
       <View style={styles.topRow}>
@@ -15,13 +40,13 @@ const UserHeader = () => {
           />
         </View>
         <View style={styles.textContainer}>
-          <Text style={styles.name}>Usuario</Text>
-          <Text style={styles.email}>usuario@gmail.com</Text>
+          <Text style={styles.name}>{nome}</Text>
+          <Text style={styles.email}>{email}</Text>
         </View>
       </View>
       
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.editButton}>
+        <TouchableOpacity style={styles.editButton} onPress={()=> router.push('/telaEditarUsuario')}>
           <Text style={styles.editButtonText}>Editar</Text>
         </TouchableOpacity>
       </View>
