@@ -19,7 +19,6 @@ export default function Index() {
             <StatusBar style="dark" />
             <Back style={StyleSheet.absoluteFill} />
             <NavBar />
-            <View style={styles.divLogo}>
                 <CarlosComplet />
                 <View style={styles.playIcon}>
                     <Image source={require("../assets/images/playIcon1.png")} style={{width: 25, height: 25}}></Image>
@@ -29,7 +28,6 @@ export default function Index() {
                 <View style={styles.divJogos}>
                     <DivJogos />
                 </View>
-            </View>
         </View>
     );
 }
@@ -45,17 +43,21 @@ const styles = StyleSheet.create({
     },
 
     divJogos: {
+        alignContent: 'center',
         alignItems: 'center',
-        marginTop: 20,  
+        position: 'absolute',
+        top: 370,
+        width: '100%',
+        height: '55%',
     },
-
-    ferradura1: { zIndex: 1 },
-    ferradura2: { zIndex: 3 },
-    carlinhosIcone: { zIndex: 10,},
+    divLogo: {
+        alignItems: 'center',
+    },
 
     container: {
         flex: 1,
         alignItems: 'center',
+        alignContent: 'center',
         width: '100%',
         height: '100%',
         marginTop: RNStatusBar.currentHeight,

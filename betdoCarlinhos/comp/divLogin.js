@@ -61,7 +61,7 @@ const Login = () => {
                     </View>
                     <View style={styles.inputEmail}>
                         <TextInput style={styles.input}
-                            placeholder='Crie uma senha'
+                            placeholder='Insira sua senha'
                             placeholderTextColor="#b3b3b3ff"
                             secureTextEntry={true}
                             value={senha}

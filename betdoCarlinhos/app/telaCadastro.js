@@ -6,14 +6,19 @@ import NavBar from '../comp/navBar';
 import { StatusBar } from 'expo-status-bar';
 export default function Index() {
   return (
-    <View style={styles.container}>
-      <StatusBar style="dark" />
+    
+      <View style={styles.container}>
+      <StatusBar style={{marginTop: 20, position: 'absolute'}}  />
+      <ScrollView style={styles.container} contentContainerStyle={styles.scrollViewContent}>
       <Back style={StyleSheet.absoluteFill} />
-       <NavBar />
+      <View style={{position: 'absolute', width: '100%', marginTop: 35}}>
+       <NavBar/>
+       </View>
         <View style={styles.divCadastro}>
           <Cadastro />
         </View>
-    </View>
+    </ScrollView>
+    </View >
   );
 }
 
@@ -22,10 +27,14 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     height: '100%',
+    
+  },
+  scrollViewContent: {
+    
     alignItems: 'center',
-    paddingTop: RNStatusBar.currentHeight,
+    height: '130%',
   },
   divCadastro: {
-    marginTop: 150,
+    marginTop: 160,
   },
 });
