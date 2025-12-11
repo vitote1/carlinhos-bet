@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
         gap: 15,
     },
     title: {
-        backgroundColor: '#2c1ea541',
         padding: 5,
         borderRadius: 10,
         alignItems: 'center',

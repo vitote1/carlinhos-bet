@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { TextInput, View, Text, StyleSheet } from 'react-native';
 
-export default function InputValor({ value, onChangeText }) {
+export default function InputValor({ value: valorInicial = '', onChangeText }) {
+  const [valorSaque, setValorSaque] = useState(valorInicial);
+
+  useEffect(() => {
+    setValorSaque(valorInicial);
+  }, [valorInicial]);
+
+  const handleChange = (text) => {
+    setValorSaque(text);
+    if (typeof onChangeText === 'function') onChangeText(text);
+  };
+
   return (
     <View>
       <Text style={styles.label}>Valor</Text>
       <TextInput
         style={styles.input}
         placeholder="Inserir Valor"
-        value={value}
-        onChangeText={onChangeText}
+        value={valorSaque}
+        onChangeText={handleChange}
         keyboardType="numeric"
       />
     </View>

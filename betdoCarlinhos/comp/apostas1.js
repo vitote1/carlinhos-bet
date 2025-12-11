@@ -34,10 +34,15 @@ const Aposta = ({ setTriggerAtt }) => {
         if (usuarioLogadoStr && bd) {
             const userLogado = JSON.parse(usuarioLogadoStr);
             const userbd = bdArray.find((u) => u.email === userLogado.email && u.senha === userLogado.senha);
-            if (userLogado.saldo < valorBruto) {
+            if (userLogado.saldo < valorBruto ){
                 alert("Saldo insuficiente!");
                 return;
-            } else {
+            }
+            else if (valorBruto <= 0) {
+                alert("Insira um valor válido para apostar!");
+                return;
+            }  
+            else {
                 alert("Aposta válida!");
                 userLogado.saldo = userLogado.saldo - valorBruto;
                 userbd.saldo = userbd.saldo - valorBruto;
@@ -48,6 +53,7 @@ const Aposta = ({ setTriggerAtt }) => {
                 if (setTriggerAtt) setTriggerAtt(prev => !prev);
 
             }
+            
         }
     }
 
@@ -214,10 +220,14 @@ const styles = StyleSheet.create({
     },
 
     divPai: {
+        alignContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
         display: 'flex',
         flexDirection: 'column',
     },
     telao: {
+        alignContent: 'center',
         borderTopWidth: 3,
         borderBottomWidth: 4,
         borderColor: '#FFB20B',

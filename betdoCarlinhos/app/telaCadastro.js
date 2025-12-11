@@ -7,7 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 export default function Index() {
   return (
     
-      <View style={styles.container}>
+    <View style={styles.container}>
       <StatusBar style={{marginTop: 20, position: 'absolute'}}  />
       <ScrollView style={styles.container} contentContainerStyle={styles.scrollViewContent}>
       <Back style={StyleSheet.absoluteFill} />

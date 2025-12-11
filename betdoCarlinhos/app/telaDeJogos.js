@@ -34,19 +34,20 @@ export default function Index() {
 
 const styles = StyleSheet.create({
     playIcon: {
+        position: 'absolute',
         flexDirection: 'row',
         alignItems: 'center',
         gap: 10,
-        marginTop: 320,  
+        marginTop: 370,  
         width: '80%',
-        marginLeft: '10%',
+        marginLeft: '-7%',
     },
 
     divJogos: {
         alignContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        top: 370,
+        top: 410,
         width: '100%',
         height: '55%',
     },
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         alignContent: 'center',
         width: '100%',
-        height: '100%',
+        height: '10%',
         marginTop: RNStatusBar.currentHeight,
     },
 });

@@ -15,7 +15,7 @@ const DivJogos = () => {
                 {jogosIcon('Fortune Carlinhos', 'Slots', require('../assets/images/playboycarlos.jpg'), 'telaJackpot')}
             </View>
             <View>
-                {jogosIcon('Steel Ball Run', 'Slots', require('../assets/images/fortunecarlinhosicon.jpeg'), 'telaCavalos')}
+                {jogosIcon('Steel Ball Run', 'Corridas', require('../assets/images/fortunecarlinhosicon.jpeg'), 'telaCavalos')}
             </View>
         </View >
     )

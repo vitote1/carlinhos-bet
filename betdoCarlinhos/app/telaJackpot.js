@@ -1,4 +1,4 @@
-import { View, StyleSheet, Image, StatusBar as RNStatusBar, ScrollView } from 'react-native';
+import { View, StyleSheet, Image, StatusBar as RNStatusBar, ScrollView,  } from 'react-native';
 import React from 'react';
 import Back from '../comp/background';
 import { useRouter } from 'expo-router';
@@ -7,6 +7,7 @@ import NavBar from '../comp/navBarSalUser';
 import Carlos from '../comp/carlosComplet';
 import Aposta from '../comp/apostas1';
 import { useState } from 'react';
+
 
 export default function Index() {
 
@@ -22,10 +23,7 @@ export default function Index() {
         <View style={styles.container}>
             <StatusBar style="dark" />
             <Back style={StyleSheet.absoluteFill} />
-            <ScrollView 
-                showsVerticalScrollIndicator={false}
-                showsHorizontalScrollIndicator={false}
-                >
+            <ScrollView  contentContainerStyle={styles.scrollViewContent}>
                 <NavBar triggerAtt={triggerAtt}/>
                 <Carlos />
 
@@ -45,6 +43,7 @@ const styles = StyleSheet.create({
     carlinhosIcone: { zIndex: 10, },
 
     container: {
+        
         flex: 1,
         alignItems: 'center',
         width: '100%',
@@ -52,6 +51,16 @@ const styles = StyleSheet.create({
         paddingTop: RNStatusBar.currentHeight,
     },
     aposta: {
-        marginTop: 140,
-    }
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
+        alignContent: 'center',
+        position: 'absolute',
+        marginTop: 400,
+    },
+    scrollViewContent: {
+        alignItems: 'center',
+        paddingBottom: 100,
+        height: '150%',
+    },
 });

@@ -6,26 +6,28 @@ import TelaDeSaque from '../comp/teladeSaque';
 import Back from '../comp/background';
 import NavBar from '../comp/navBar';
 import CarlosComplet from '../comp/carlosComplet';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { listarUsers } from '../service/betService';
 
 export default function App() {
     const router = useRouter();
-
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <StatusBar style="dark" />
 
             <Back style={StyleSheet.absoluteFill} />
-
+            <View style={{ position: 'absolute', width: '100%', marginTop: 35 }}>
             <NavBar />
+            </View>
 
             <View style={styles.divLogo}>
                 <CarlosComplet />
 
-                <View style={styles.divJogos}>
+                <View style={styles.divSaque}>
                     <TelaDeSaque />
                 </View>
             </View>
-        </SafeAreaView>
+        </View>
     );
 }
 
@@ -39,7 +41,10 @@ const styles = StyleSheet.create({
         marginLeft: '10%',
     },
 
-    divJogos: {
+    divSaque: {
+        top: '40%',
+        alignSelf: 'center',
+        position: 'absolute',
         alignItems: 'center',
         marginTop: 20,
     },
@@ -53,5 +58,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         height: '100%',
+    },
+    divLogo: {
+        alignItems: 'center',
+        
+        marginTop: 95,
     },
 });

@@ -10,7 +10,7 @@ export default function Index() {
     <View style={styles.container}> 
     <StatusBar style="dark" />
       <Back style={StyleSheet.absoluteFill}/>
-      <NavBar></NavBar>
+      {/* <NavBar></NavBar> não acho q faça sentido essa navbar na tela de login. tipo, quem vai querer voltar pra pagina com um botao de jogar e a foto do carlinhos? */}
           <View style={styles.divLogin}>
             <Login/>
           </View>
