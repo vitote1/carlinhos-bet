@@ -3,30 +3,21 @@ import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useRouter } from "expo-router";
 
+
 const MenuOption = () => {
   const router = useRouter(); 
 
-  const sair = () => {
-    Alert.alert(
-      "Confirmar saída",
-      "Deseja realmente sair?",
-      [
-        { text: "Cancelar", style: "cancel" },
-        {
-          text: "Sair",
-          style: "destructive",
-          onPress: async () => {
-            try {
-              await AsyncStorage.removeItem('usuarioLogado');
-              router.push('/teaLogin'); // ← Agora funciona
-            } catch (e) {
-              console.error('Erro ao sair:', e);
-            }
-          }
-        }
-      ]
-    );
-  };
+const sair = () => {
+  Alert.alert(
+    "Confirmar saída",
+    "Deseja realmente sair?",
+    [
+      { text: "Cancelar", style: "cancel" },
+      { text: "Sair", style: "destructive", onPress: () => console.log("Saindo...") }
+    ],
+    { cancelable: true }
+  );
+};
 
   return (
     <View style={styles.container}>
