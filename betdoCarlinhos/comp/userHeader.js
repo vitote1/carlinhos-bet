@@ -21,7 +21,6 @@ const UserHeader = () => {
         </View>
       </View>
       
-      {/* Segunda linha: Botão de editar */}
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.editButton}>
           <Text style={styles.editButtonText}>Editar</Text>
@@ -33,7 +32,7 @@ const UserHeader = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20, /* Duas horas para ser essa merda */
+    padding: 20, 
     marginHorizontal: 16,
     marginBottom: 30,
     marginTop: 20,

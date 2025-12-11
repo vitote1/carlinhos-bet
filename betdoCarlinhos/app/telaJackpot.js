@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Image, StatusBar as RNStatusBar, ScrollView } from 'react-native';
+import { View, StyleSheet, Image, StatusBar as RNStatusBar, ScrollView } from 'react-native';
 import React from 'react';
 import Back from '../comp/background';
 import { useRouter } from 'expo-router';
@@ -13,6 +13,7 @@ export default function Index() {
     const router = useRouter();
     const [triggerAtt, setTriggerAtt] = useState(0);
     const atualizarSaldoNavBar = () => setTriggerAtt(prev => prev + 1);
+    
 
 
 
@@ -48,6 +49,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         height: '100%',
+        paddingTop: RNStatusBar.currentHeight,
     },
     aposta: {
         marginTop: 140,

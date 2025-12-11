@@ -3,7 +3,7 @@ import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 
-const Botao = () => {
+const BotaoJogar = () => {
 
     const router = useRouter();
 
@@ -44,4 +44,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Botao;
+export default BotaoJogar;

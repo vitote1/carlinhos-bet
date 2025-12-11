@@ -13,11 +13,12 @@ export default function Jackpot({acionarFuncao}) {
   const [reels, setReels] = useState([
     [symbols[0], symbols[1], symbols[2]], 
     [symbols[1], symbols[2], symbols[0]],
+    [symbols[2], symbols[0], symbols[1]]
   ]);
 
   const spin = () => {
     console.log('go')
-    const newReels = Array.from({ length: 2 }, () =>
+    const newReels = Array.from({ length: 3 }, () =>
       Array.from({ length: 3 }, () => {
         const randomIndex = Math.floor(Math.random() * symbols.length);
         return symbols[randomIndex];
@@ -25,20 +26,6 @@ export default function Jackpot({acionarFuncao}) {
     );
     setReels(newReels);
     
-newReels.forEach((line, i) => {
-    const repetido = verificarLinha(line);
-    if (repetido) {
-      console.log(`Linha ${i+1} tem 3 símbolos iguais!`, repetido);
-      if (enviarResultado) enviarResultado(repetido); 
-    }
-  });
-
-
-  const todosIguais = verificarTodosIguais(newReels);
-  if (todosIguais) {
-    console.log("Todas as 6 posições são iguais!", todosIguais);
-    if (enviarResultado) enviarResultado(todosIguais);
-  }
 };
 
   
