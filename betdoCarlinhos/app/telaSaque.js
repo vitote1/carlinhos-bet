@@ -16,7 +16,9 @@ export default function App() {
             <StatusBar style="dark" />
             <Back style={StyleSheet.absoluteFill} />
 
-            <NavBar />
+            <View style={styles.navBarContainer}>
+                    <NavBar />
+                </View>
 
             <View style={styles.divLogo}>
                 <CarlosComplet />
@@ -59,7 +61,10 @@ const styles = StyleSheet.create({
     },
     divLogo: {
         alignItems: 'center',
-        
-        marginTop: 95,
+        marginTop: 0,
+    },
+     navBarContainer: {
+        width: '100%',
+        marginTop: 35,
     },
 });

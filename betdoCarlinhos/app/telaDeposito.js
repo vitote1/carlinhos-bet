@@ -21,7 +21,7 @@ export default function App() {
                 showsVerticalScrollIndicator={false}
             >
                 <View style={styles.navBarContainer}>
-                    <NavBar />
+                    <NavBar/>
                 </View>
 
                 <View style={styles.divLogo}>
@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     scrollViewContent: {
         alignItems: 'center',
         paddingVertical: 20,
-        
         height: '120%',
     },
     navBarContainer: {
@@ -59,7 +58,6 @@ const styles = StyleSheet.create({
     },
     divLogo: {
         alignItems: 'center',
-        marginTop: 20,
         width: '100%',
     },
     divDeposito: {

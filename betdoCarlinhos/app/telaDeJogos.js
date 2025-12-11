@@ -16,7 +16,10 @@ export default function Index() {
         <View style={styles.container}>
             <StatusBar style="dark" />
             <Back style={StyleSheet.absoluteFill} />
-            <NavBar onSaldo={1} onUsuario={1} />
+            <View style={styles.navBarContainer}>
+                    <NavBar onSaldo={1} onUsuario={1} />
+            </View>
+            
             <CarlosComplet />
             <View style={styles.divLogo}>
                 <View style={styles.playIcon}>
@@ -55,12 +58,16 @@ const styles = StyleSheet.create({
         gap: 20,
     },
     container: {
-        flex: 1,
+        flex:1,
         alignItems: 'center',
         alignContent: 'center',
         width: '100%',
         height: '10%',
-        marginTop: RNStatusBar.currentHeight,
+        
+    },
+     navBarContainer: {
+        width: '100%',
+        marginTop: 35,
     },
 });
 

@@ -8,10 +8,12 @@ export default function Index() {
   return (
     
     <View style={styles.container}>
-      <StatusBar style={{marginTop: 20, position: 'absolute'}}  />
+      <StatusBar  style='dark' />
       <ScrollView style={styles.container} contentContainerStyle={styles.scrollViewContent}>
       <Back style={StyleSheet.absoluteFill} />
-       <NavBar onSaldo = {0} onUsuario = {0} />
+       <View style={styles.navBarContainer}>
+                    <NavBar onSaldo = {0} onUsuario = {0}/>
+                </View>
         <View style={styles.divCadastro}>
           <Cadastro />
         </View>
@@ -22,6 +24,7 @@ export default function Index() {
 
 const styles = StyleSheet.create({
   container: {
+    
     flex: 1,
     width: '100%',
     height: '100%',
@@ -34,4 +37,8 @@ const styles = StyleSheet.create({
   divCadastro: {
     marginTop: 160,
   },
+   navBarContainer: {
+        width: '100%',
+        marginTop: 35,
+    },
 });
