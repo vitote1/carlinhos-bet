@@ -13,13 +13,14 @@ const MenuOption = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button}
+      onPress={() => router.push('/telaSaque')}>
         <Text style={styles.buttonText}>Sacar Saldo</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => router.push('/telaLogin')}
+        onPress={() => router.push('/telaDeposito')}
       >
         <Text style={styles.buttonText}>Depositar Saldo</Text>
       </TouchableOpacity>
