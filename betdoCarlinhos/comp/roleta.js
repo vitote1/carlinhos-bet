@@ -3,9 +3,9 @@ import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import { useEffect } from "react";
 
 const symbols = [
-  require('../assets/images/cavalo.png'),
-  require('../assets/images/Jegue.png'),
-  require('../assets/images/coritias.png')
+  require('../assets/images/cavalo.png'), //0
+  require('../assets/images/Jegue.png'),//1
+  require('../assets/images/coritias.png')//2
 ];
 
 
@@ -26,6 +26,12 @@ export default function Jackpot({acionarFuncao}) {
     );
     setReels(newReels);
     
+};
+
+const checkWin = (currentReels) => {
+    if (currentReels[0] === currentReels[1] && currentReels[1] === currentReels[2]) {
+        alert("Parabéns! Você GANHOU!");
+    } else {}
 };
 
   

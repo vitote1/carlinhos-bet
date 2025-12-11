@@ -6,10 +6,12 @@ import { StatusBar } from 'expo-status-bar';
 import CarlosComplet from '../comp/carlosComplet';
 import DivJogos from '../comp/divjogos';
 import NavBar from '../comp/navBar';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Index() {
 
     const router = useRouter();
+
 
     return (
 
