@@ -1,37 +1,22 @@
+
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useRouter } from "expo-router";
+import { View, Text, StyleSheet, Button } from 'react-native';
 
 
 const MenuOption = () => {
-  const router = useRouter(); 
-
-const sair = () => {
-  Alert.alert(
-    "Confirmar saída",
-    "Deseja realmente sair?",
-    [
-      { text: "Cancelar", style: "cancel" },
-      { text: "Sair", style: "destructive", onPress: () => console.log("Saindo...") }
-    ],
-    { cancelable: true }
-  );
-};
-
   return (
     <View style={styles.container}>
       <View style={styles.button}>
-        <Text style={styles.buttonText}>Sacar Saldo</Text>
+        <Button style={styles.buttonButton}>Sacar Saldo</Button>
       </View>
       <View style={styles.button}>
-        <Text style={styles.buttonText}>Depositar Saldo</Text>
+        <Button style={styles.buttonButton} onPress={() => router.navigate('telaLogin')}>Depositar Saldo</Button>
       </View>
       <View style={styles.button}>
-        <Text style={styles.buttonText}>Informações</Text>
+        <Button style={styles.buttonButton}>Informações</Button>
       </View>
       <View style={styles.button}>
-        <Text style={styles.buttonText}>Ajuda</Text>
+        <Button style={styles.buttonButton}>Ajuda</Button>
       </View>
 
       <TouchableOpacity style={styles.button} onPress={sair}>
