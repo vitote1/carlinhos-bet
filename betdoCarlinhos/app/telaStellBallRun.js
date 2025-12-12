@@ -29,7 +29,11 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-  }
+  },
+  navBarContainer: {
+        width: '100%',
+        marginTop: 35,
+    },
 });
 
 export default TelaStellBallRun;
