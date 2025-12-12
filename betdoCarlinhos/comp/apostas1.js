@@ -18,6 +18,7 @@ const Aposta = ({ setTriggerAtt }) => {
     const [lucro, setLucro] = useState(0);
     const [pickerVisible, setPickerVisible] = useState(false);
     const [texto, setTexto] = useState('');
+    const [textoGanhar, setTextoGanhar] = useState('');
     const multipliers = {
         Cavalo: { 3: 2, 6: 12 },
         Jegue: { 3: 3, 6: 9 },
@@ -26,44 +27,44 @@ const Aposta = ({ setTriggerAtt }) => {
         Amongus: { 3: 3, 6: 10 }
     };
 
-    async function handleWin(winningLines) {
-        if (!winningLines || winningLines.length === 0) {
-            setLucro(0);
-            return;
-        }
-
-        const win = winningLines[0];
-
-        const simbolo = win.nome;
-        const count = win.count;
-
-        if (!multipliers[simbolo] || !multipliers[simbolo][count]) {
-            setLucro(0);
-            return;
-        }
-
-        const multi = multipliers[simbolo][count];
-        console.log(multi);
-         console.log(simbolo);
-        const ganho = valorBruto * multi;
-
-        setLucro(ganho - valorBruto);
-
-        const usuarioStr = await AsyncStorage.getItem("usuarioLogado");
-        const bd = await listarUsers();
-        let bdArray = Array.isArray(bd) ? bd : [bd];
-
-        const usuario = JSON.parse(usuarioStr);
-        const userbd = bdArray.find(u => u.email === usuario.email && u.senha === usuario.senha);
-
-        usuario.saldo += ganho;
-        userbd.saldo += ganho;
-
-        await AsyncStorage.setItem("usuarioLogado", JSON.stringify(usuario));
-        await AsyncStorage.setItem("usuarios", JSON.stringify(bdArray));
-
-        if (setTriggerAtt) setTriggerAtt(prev => !prev);
+async function handleWin(winningLines) {
+    if (!winningLines || winningLines.length === 0) {
+        setLucro(prev => prev - valorBruto);
+        setTextoGanhar(`Perdeu R$ ${valorBruto.toFixed(2).replace('.', ',')}`);
+        return;
     }
+
+    const win = winningLines[0];
+    const simbolo = win.nome;
+    const count = win.count;
+
+    if (!multipliers[simbolo] || !multipliers[simbolo][count]) {
+        setLucro(0);
+        return;
+    }
+
+    const multi = multipliers[simbolo][count];
+    const ganho = valorBruto * multi;
+
+    setLucro(prev => prev + (ganho - valorBruto));
+    setTextoGanhar(`Ganhou R$ ${ganho.toFixed(2).replace('.', ',')}!`);
+
+    const usuarioStr = await AsyncStorage.getItem("usuarioLogado");
+    const bd = await listarUsers();
+    let bdArray = Array.isArray(bd) ? bd : [bd];
+
+    const usuario = JSON.parse(usuarioStr);
+    const userbd = bdArray.find(u => u.email === usuario.email && u.senha === usuario.senha);
+
+    usuario.saldo += ganho;
+    userbd.saldo += ganho;
+
+    await AsyncStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+    await AsyncStorage.setItem("usuarios", JSON.stringify(bdArray));
+
+    if (setTriggerAtt) setTriggerAtt(prev => !prev);
+}
+
 
 
     function formatarMoeda(text) {
@@ -138,7 +139,7 @@ const Aposta = ({ setTriggerAtt }) => {
             <View style={styles.telao}>
                 <View style={styles.moldura}>
                     <View style={styles.expoe}>
-                        <Text style={styles.indicar}>Jackpot Carlinhos</Text>
+                        <Text style={styles.indicar}>{textoGanhar}</Text>
                     </View>
                 </View>
             </View>
@@ -175,8 +176,12 @@ const Aposta = ({ setTriggerAtt }) => {
                                             setPickerVisible(false);
                                         }}
                                     >
-                                        <Image source={opcao.image} style={styles.icon} />
-                                        <Text style={styles.optionText}>{opcao.texto}</Text>
+                                        <View style={{ width: '40%', alignItems: 'flex-end' }}>
+                                            <Image source={opcao.image} style={styles.icon} />
+                                        </View>
+                                        <View style={{ width: '60%' }}>
+                                            <Text style={styles.optionText}>{opcao.texto}</Text>
+                                        </View>
                                     </TouchableOpacity>
                                 ))}
 
@@ -187,7 +192,7 @@ const Aposta = ({ setTriggerAtt }) => {
                 </View>
                 <View style={styles.divGanho}>
                     <View style={styles.Lucro}>
-                        <Text style={{ fontSize: 17, color: 'white', textAlign: 'center', textAlignVertical: 'center' }}>R$ {lucro}</Text>
+                        <Text style={{ fontSize: 17, color: 'white', textAlign: 'center', textAlignVertical: 'center' }}>R$ {lucro.toFixed(2).replace('.', ',')}</Text>
                     </View>
                     <Text style={{ color: 'white', marginTop: 5, fontWeight: '500', fontSize: 17, }}>Lucro</Text>
                 </View>
@@ -246,8 +251,10 @@ const styles = StyleSheet.create({
         marginRight: 12,
     },
     optionText: {
-        color: 'white',
+        color: 'black',
         fontSize: 16,
+        textAlign: 'left',
+        width: '100%'
     },
     botao: {
         marginTop: 50,
