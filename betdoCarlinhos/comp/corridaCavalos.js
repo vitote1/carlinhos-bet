@@ -22,9 +22,8 @@ const styles = StyleSheet.create({
   lane: { flex: 1, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10 },
   num: { width: 40, height: 40, borderRadius: 20, backgroundColor: '#000', justifyContent: 'center', alignItems: 'center', marginRight: 8 },
   text: { color: '#fff', fontSize: 14, fontWeight: 'bold' },
-  track: { flex: 1, backgroundColor: '#00ff00', height: 35, borderRadius: 4, marginHorizontal: 2 },
+  track: { flex: 1, backgroundColor: '#00ff00', height: 60, borderRadius: 4, marginHorizontal: 2 },
   finish: { height: 8, backgroundColor: '#ffd700' },
 });
 
 export default CorridaCavalos;
-
