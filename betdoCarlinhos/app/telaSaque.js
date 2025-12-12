@@ -32,17 +32,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-    playIcon: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 10,
-        marginTop: 320,
-        width: '80%',
-        marginLeft: '10%',
-    },
+
 
     divSaque: {
-        top: '40%',
         alignSelf: 'center',
         position: 'absolute',
         alignItems: 'center',
