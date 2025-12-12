@@ -14,7 +14,7 @@ export default function TelaDeDeposito() {
   const depositarValor = async (valorDeposito, tipoDeposito) => {
     const valorNumerico = parseFloat(valorDeposito);
 
-    // Validações
+
     if (!valorDeposito || valorNumerico <= 0) {
       alert("Por favor, insira um valor válido!");
       return;
@@ -58,20 +58,22 @@ export default function TelaDeDeposito() {
   return (
 
     <View style={styles.container}>
-        <View>
-            <Titulo text="Deposite seu dinheiro" />
-            
-            <View style={styles.collumn}>
-              <TipoSelecao label="Pix" selected={tipo === 'pix'} onPress={() => setTipo('pix')} icon="💲" />
-              <TipoSelecao label="Cartão" selected={tipo === 'cartao'} onPress={() => setTipo('cartao')} icon="💳" />
-              <TipoSelecao label="Boleto" selected={tipo === 'boleto'} onPress={() => setTipo('boleto')} icon="📃" />
-              
-            </View>
-            <View style={{ marginBottom: 20 }}>
-                <InputValorDeposito value={valor} onChangeText={setValor} />
-            </View>
+      <View>
+        <Titulo text="Deposite seu dinheiro" />
+
+        <View style={styles.collumn}>
+          <TipoSelecao label="Pix" selected={tipo === 'pix'} onPress={() => setTipo('pix')} icon="💲" />
+          <TipoSelecao label="Cartão" selected={tipo === 'cartao'} onPress={() => setTipo('cartao')} icon="💳" />
+          <TipoSelecao label="Boleto" selected={tipo === 'boleto'} onPress={() => setTipo('boleto')} icon="📃" />
+
+        </View>
+        <View style={{ marginBottom: 20 }}>
+          <InputValorDeposito value={valor} onChangeText={setValor} />
+        </View>
+        <View style={styles.botao}>
           <Botao text="Depositar" onPress={() => depositarValor(valor, tipo)} />
         </View>
+      </View>
     </View>
   );
 }
@@ -88,7 +90,7 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     paddingBottom: 40,
     justifyContent: 'center',
-    alignSelf: 'center', 
+    alignSelf: 'center',
   },
   collumn: {
     width: "223%",
@@ -99,4 +101,9 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     bottom: 30,
   },
+  botao: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
 });

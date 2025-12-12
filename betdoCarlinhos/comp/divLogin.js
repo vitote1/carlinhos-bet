@@ -15,8 +15,9 @@ const Login = () => {
     const [senha, setSenha] = useState('');
 
     const fazerLogin = async () => {
-        const usuario = await listarUsers();
-        const usuarioEncontrado = usuario.find(
+        const usuarios = await listarUsers();
+        console.log("Usuários:", usuarios);
+        const usuarioEncontrado = usuarios.find(
             (u) => u.email === email && u.senha === senha
         );
         console.log(usuarioEncontrado)

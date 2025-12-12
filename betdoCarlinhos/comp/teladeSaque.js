@@ -45,10 +45,10 @@ export default function TelaDeSaque() {
       const novoSaldo = saldoAtual - valorNumerico;
       usuarioLogado.saldo = novoSaldo;
 
-      
+
       await AsyncStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
 
-      
+
       const userIndex = bdArray.findIndex(u => u.email === usuarioLogado.email);
       if (userIndex !== -1) {
         bdArray[userIndex].saldo = novoSaldo;
@@ -72,7 +72,9 @@ export default function TelaDeSaque() {
         <TipoSelecao label="Pix" selected={tipo === 'pix'} onPress={() => setTipo('pix')} icon="💲" />
         <TipoSelecao label="Banco" selected={tipo === 'banco'} onPress={() => setTipo('banco')} icon="📋" />
       </View>
-      <Botao text="Sacar" onPress={() => sacarValor(valor, tipo)} />
+      <View style={styles.botao}>
+        <Botao text="Sacar" onPress={() => sacarValor(valor, tipo)} />
+      </View>
     </View>
   );
 }
@@ -91,4 +93,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginVertical: 20,
   },
+  botao: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
 });

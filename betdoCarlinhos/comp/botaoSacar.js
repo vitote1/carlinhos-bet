@@ -11,10 +11,12 @@ export default function BotaoSacar({ text, onPress }) {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#001122',
-    padding: 15,
-    borderRadius: 12,
+    width: '70%',
+    backgroundColor: '#2E58B9',
+    height: 55,
+    borderRadius: 30,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
     color: '#FFF',

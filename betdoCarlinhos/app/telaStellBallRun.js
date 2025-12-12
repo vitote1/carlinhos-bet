@@ -3,6 +3,7 @@ import React from 'react';
 import Back from '../comp/background';
 import NavBar from '../comp/navBar';
 import BotoesCavalosAposta from '../comp/botoesApostaCavalo';
+import CorridaCavalos from '../comp/corridaCavalos';
 
 const TelaStellBallRun = () => {
     return (
@@ -11,8 +12,11 @@ const TelaStellBallRun = () => {
             <View style={styles.navBarContainer}>
                 <NavBar onSaldo={1} onUsuario={1} />
             </View>
+            <View style={styles.corridaContainer}>
+                <CorridaCavalos />
+            </View>
             <View style={styles.content}>
-              <BotoesCavalosAposta />
+                <BotoesCavalosAposta />
             </View>
         </View>
     );
@@ -21,7 +25,6 @@ const TelaStellBallRun = () => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    overflow: 'hidden',
   },
   navBarContainer: {
     position: 'absolute',
@@ -30,9 +33,12 @@ const styles = StyleSheet.create({
     right: 0,
     zIndex: 10,
   },
+  corridaContainer: {
+    marginTop: 70,
+    height: 380,
+  },
   content: {
     flex: 1,
-    marginTop: 70,
   }
 });
 

@@ -37,45 +37,51 @@ const Login = () => {
         carregarInfo();
     }, []);
 
-    async function atualizarDados() {
-        try {
-            const usuariosArray = await listarUsers();
-            const userStr = await AsyncStorage.getItem("usuarioLogado");
+   async function atualizarDados() {
+    try {
+        const usuariosArray = await listarUsers();
+        const userStr = await AsyncStorage.getItem("usuarioLogado");
 
-            if (!userStr || !usuariosArray) return;
+        if (!userStr || !usuariosArray) return;
 
-            const userTxt = JSON.parse(userStr);
+        const userTxt = JSON.parse(userStr);
 
-            const usuarioBd = usuariosArray.find(
-                (u) => u.email === userTxt.email && u.id === userTxt.id && u.cpf === userTxt.cpf
-            )
-            if (!usuarioBd) return;
-            if(usuarioBd.email !== email){
-                usuarioBd.email = email;
-                userTxt.email = email;
-            }
-            if(usuarioBd.senha !== senha){
-                usuarioBd.senha = senha;
-                userTxt.senha = senha;
-            }
-            if(usuarioBd.cpf !== cpf){
-                usuarioBd.cpf = cpf;
-                userTxt.cpf = cpf;
-            } 
-            if(usuarioBd.nome !== nome){
-                usuarioBd.nome = nome;
-                userTxt.nome = nome;
-            }
-            
-            await AsyncStorage.setItem("usuarioLogado", JSON.stringify(userTxt));
-            await AsyncStorage.setItem("usuarios", JSON.stringify(usuarioBd));
-            alert('Dados atualizados com sucesso!');
+        const usuarioBd = usuariosArray.find(
+            (u) => u.email === userTxt.email && u.id === userTxt.id && u.cpf === userTxt.cpf
+        );
+
+        if (!usuarioBd) return;
+
+        if (usuarioBd.email !== email) {
+            usuarioBd.email = email;
+            userTxt.email = email;
         }
-        catch (err) {
-            console.log("Erro ao atualizar:", err);
-            alert("Erro ao atualizar dados.");
+        if (usuarioBd.senha !== senha) {
+            usuarioBd.senha = senha;
+            userTxt.senha = senha;
         }
+        if (usuarioBd.cpf !== cpf) {
+            usuarioBd.cpf = cpf;
+            userTxt.cpf = cpf;
+        }
+        if (usuarioBd.nome !== nome) {
+            usuarioBd.nome = nome;
+            userTxt.nome = nome;
+        }
+
+        const index = usuariosArray.findIndex((u) => u.id === usuarioBd.id);
+        usuariosArray[index] = usuarioBd;
+
+        await AsyncStorage.setItem("usuarioLogado", JSON.stringify(userTxt));
+        await AsyncStorage.setItem("usuarios", JSON.stringify(usuariosArray));
+
+        alert("Dados atualizados com sucesso!");
+        router.push("telaUsuario");
+    } catch (err) {
+        console.log("Erro ao atualizar:", err);
+        alert("Erro ao atualizar dados.");
     }
+}
 
     return (
         <View style={styles.divAlterarDados}>
