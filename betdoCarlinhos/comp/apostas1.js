@@ -163,7 +163,7 @@ const Aposta = ({ setTriggerAtt }) => {
 
                     <Modal visible={pickerVisible} transparent animationType="fade">
                         <TouchableOpacity style={styles.modalOverlay} onPress={() => setPickerVisible(false)}>
-                            <View style={styles.modalBox}>
+                            <View style={styles.modalBox} pointerEvents="none">
 
                                 {opcoesMultiplicador.map((opcao, index) => (
                                     <TouchableOpacity
