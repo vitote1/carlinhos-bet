@@ -24,15 +24,16 @@ export default DivJogos;
 
 const styles = StyleSheet.create({
     divJogos: {
-        padding: 10,
+        padding:10,
         paddingBottom: 30,
         paddingTop: 30,
         display: 'flex',
         backgroundColor: '#080B14',
         borderColor: '#242424',
-        width: 370,
+        width: '100%',
         borderWidth: 1,
         borderRadius: 20,
         gap: 50,
+      
     },
 });

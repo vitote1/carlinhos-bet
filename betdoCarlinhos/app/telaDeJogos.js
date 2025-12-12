@@ -6,11 +6,11 @@ import { StatusBar } from 'expo-status-bar';
 import CarlosComplet from '../comp/carlosComplet';
 import DivJogos from '../comp/divjogos';
 import NavBar from '../comp/navBar';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Index() {
 
     const router = useRouter();
+
 
 
     return (
@@ -19,50 +19,51 @@ export default function Index() {
             <StatusBar style="dark" />
             <Back style={StyleSheet.absoluteFill} />
             <View style={styles.navBarContainer}>
-                    <NavBar onSaldo={1} onUsuario={1} />
-            </View>
-            
-            <CarlosComplet />
-            <View style={styles.divLogo}>
+                    <NavBar/>
+                </View>
+                <CarlosComplet />
                 <View style={styles.playIcon}>
-                    <Image source={require("../assets/images/playIcon1.png")} style={{ width: 25, height: 25 }}></Image>
+                    <Image source={require("../assets/images/playIcon1.png")} style={{width: 25, height: 25}}></Image>
                     <Text style={{ fontSize: 26, color: '#ffffff', fontWeight: 'bold' }}>Jogos em destaque</Text>
                 </View>
 
                 <View style={styles.divJogos}>
                     <DivJogos />
                 </View>
-            </View>
         </View>
     );
-};
+}
 
 const styles = StyleSheet.create({
     playIcon: {
+        position:'absolute',
         flexDirection: 'row',
-        alignItems: 'center',
+        alignItems: 'inline-start',
         gap: 10,
-        marginTop: 200,  
+        marginTop: '99%',  
         width: '100%',
-        paddingLeft: '5%',
+        marginLeft:'11%'
+        
     },
 
     divJogos: {
         alignContent: 'center',
         alignItems: 'center',
-        width: '100%',
+        position: 'absolute',
+        top: '49%',
+        width: '90%',
+        height: '55%',
     },
     divLogo: {
         alignItems: 'center',
-        gap: 20,
     },
+
     container: {
-        flex:1,
+        flex: 1,
         alignItems: 'center',
         alignContent: 'center',
         width: '100%',
-        height: '10%',
-        
+        height: '100%',
     },
      navBarContainer: {
         width: '100%',
