@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, StyleSheet, ScrollView, StatusBar as RNStatusBar } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Back from '../comp/background';
-import NavBar from '../comp/navBar';
 import CorridaCavalos from '../comp/corridaCavalos';
 
 export default function TelaCorridaCavalos() {
