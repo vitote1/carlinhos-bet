@@ -13,7 +13,7 @@ const CorridaCavalos = ({ setTriggerAtt }) => {
     { id: 5, nome: 'Cavalo 5', posicao: 0 },
     { id: 6, nome: 'Cavalo 6', posicao: 0 },
   ];
-
+  const imagemCavalo = require('../assets/images/cavaloMontado.png');
   const gerarOddAleatoria = () => {
     const min = 1.2;
     const max = 6.0;
@@ -108,14 +108,15 @@ const CorridaCavalos = ({ setTriggerAtt }) => {
       const novoSaldo = saldo - valorAposta + ganho;
       setSaldo(novoSaldo);
       
-      mensagem = ` PARABÉNS! ${cavalos[cavaloVencedorIdx].nome} venceu!\nVocê ganhou R$ ${ganho.toFixed(2)}!`;
+      mensagem = `${cavalos[cavaloVencedorIdx].nome} venceu!\nVocê ganhou R$ ${ganho.toFixed(2)}!`;
       
       await atualizarSaldo(novoSaldo, true, ganho, valorAposta);
     } else if (cavaloVencedorIdx >= 0) {
       const novoSaldo = saldo - valorAposta;
       setSaldo(novoSaldo);
+      if (setTriggerAtt) setTriggerAtt(prev => !prev);
       
-      mensagem = ` Que pena! ${cavalos[cavaloVencedorIdx].nome} venceu.\nVocê perdeu R$ ${valorAposta.toFixed(2)}.`;
+      mensagem = `${cavalos[cavaloVencedorIdx].nome} venceu.\nVocê perdeu R$ ${valorAposta.toFixed(2)}.`;
       
       await atualizarSaldo(novoSaldo, false, 0, valorAposta);
     }
@@ -175,7 +176,9 @@ const CorridaCavalos = ({ setTriggerAtt }) => {
                   },
                 ]}
               >
-                <Text style={styles.emojiCavalo}>🐴</Text>
+                <View style={styles.emojiCavalo}>
+                  <Image source={imagemCavalo} style={styles.imagemCavalo}></Image>
+                </View>
               </View>
             </View>
 
@@ -315,7 +318,12 @@ const styles = StyleSheet.create({
     top: 10,
   },
   emojiCavalo: {
-    fontSize: 30,
+    width:140,
+    height: 120,
+  },
+  imagemCavalo: {
+    width: '100%',
+    height: '100%',
   },
   linhaChegada: {
     position: 'absolute',
@@ -380,7 +388,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   oddsTaxa: {
-    color: '#00FF00',
+    color: '#00ff15ff',
     fontSize: 16,
     fontWeight: 'bold',
     marginTop: 3,
@@ -405,7 +413,7 @@ const styles = StyleSheet.create({
   },
   botaoIniciar: {
     backgroundColor: '#E63946',
-    borderRadius: 10,
+    borderRadius: 30,
     paddingVertical: 16,
     alignItems: 'center',
     marginBottom: 20,

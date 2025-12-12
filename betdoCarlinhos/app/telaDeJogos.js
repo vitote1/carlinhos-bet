@@ -19,7 +19,7 @@ export default function Index() {
             <StatusBar style="dark" />
             <Back style={StyleSheet.absoluteFill} />
             <View style={styles.navBarContainer}>
-                    <NavBar  onSaldo = {1} onUsuario = {1}/>
+                    <NavBar onBack={1}/>
                 </View>
                 <CarlosComplet />
                 <View style={styles.playIcon}>

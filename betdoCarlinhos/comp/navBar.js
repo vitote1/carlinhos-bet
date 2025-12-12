@@ -7,14 +7,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Imagem = require('../assets/images/setaback.png');
 const cavalo = require('../assets/images/iconeCavalo.png');
-const NavBar = ({triggerAtt, onSaldo, onUsuario}) => {
+const NavBar = ({ triggerAtt, onSaldo, onUsuario, onVoltar, onBack }) => {
   const router = useRouter();
   const [saldo, setSaldo] = useState(0);
   const pegarSaldo = async () => {
     try {
       const user = await AsyncStorage.getItem('usuarioLogado');
       if (user) {
-        const usuario = JSON.parse(user); 
+        const usuario = JSON.parse(user);
         setSaldo(usuario.saldo);
       }
     } catch (e) {
@@ -33,93 +33,125 @@ const NavBar = ({triggerAtt, onSaldo, onUsuario}) => {
   }, [triggerAtt]);
 
 
-
-  if(onSaldo && onUsuario){
-  return (
-    <View style={styles.divNavBar}>
-      <TouchableOpacity
-        style={styles.botaoVoltar}
-        onPress={() => router.back()}
-        activeOpacity={0.7}
-      >
-        <Image
-          source={Imagem}
-          style={{ width: 30, height: 30 }}
-          resizeMode="contain"
-        />
-      </TouchableOpacity>
-
-      <View style={styles.divTitle}>
-        <Image
-          source={cavalo}
-          style={{ width: 40, height: 40 }}
-          resizeMode="contain"
-        />
-        <Text style={styles.title}>Carlinhos Bet</Text>
-      </View>
-      <View style={styles.Saldo}>
-        <Text style={{ fontSize: 15, color: '#05DB70', fontWeight: '500' }}>R$ {saldo.toFixed(2)}</Text>
-      </View>
-      <TouchableOpacity style={styles.user} onPress={() => router.push('/telaUsuario')} activeOpacity={0.7}>
-      </TouchableOpacity>
-    </View>
-  );
-}
- else if(onSaldo){
-  return (
-   <View style={styles.divNavBar}>
-      <TouchableOpacity 
-        style={styles.botaoVoltar} 
-        onPress={() => router.back()}
-        activeOpacity={0.7}
-      >
-       <Image
-          source={Imagem} 
-          style={{ width: 30, height: 30 }}
-          resizeMode="contain"
-        />
-      </TouchableOpacity>
-
-      <View style={styles.divTitle}>
-        <Image
-          source={cavalo} 
-          style={{ width: 40, height: 40}}
-          resizeMode="contain"
-        />
-        <Text style={styles.title}>Carlinhos Bet</Text>
-      </View>
-      <View style={styles.Saldo}>
-        <Text style={{ fontSize: 15, color: '#05DB70', fontWeight: '500' }}>R$ {saldo.toFixed(2)}</Text>
-      </View>
-    </View>
-  );
- }
-else {
-  return (
+  if (onBack) {
+    return (
       <View style={styles.divNavBar}>
-      <TouchableOpacity 
-        style={styles.botaoVoltar} 
-        onPress={() => router.back()}
-        activeOpacity={0.7}
-      >
-       <Image
-          source={Imagem} 
-          style={{ width: 30, height: 30 }}
-          resizeMode="contain"
-        />
-      </TouchableOpacity>
-
-      <View style={styles.divTitle}>
-        <Image
-          source={cavalo} 
-          style={{ width: 40, height: 40}}
-          resizeMode="contain"
-        />
-        <Text style={styles.title}>Carlinhos Bet</Text>
+        <View style={styles.divTitle}>
+          <Image
+            source={cavalo}
+            style={{ width: 40, height: 40 }}
+            resizeMode="contain"
+          />
+          <Text style={styles.title}>Carlinhos Bet</Text>
+        </View>
+        <View style={styles.Saldo}>
+          <Text style={{ fontSize: 15, color: '#05DB70', fontWeight: '500' }}>R$ {saldo.toFixed(2)}</Text>
+        </View>
+        <TouchableOpacity style={styles.user} onPress={() => router.push('/telaUsuario')} activeOpacity={0.7}>
+        </TouchableOpacity>
       </View>
-    </View>
-  );
-}
+    );
+  }
+  else if (onSaldo && onUsuario) {
+    return (
+      <View style={styles.divNavBar}>
+        <TouchableOpacity
+          style={styles.botaoVoltar}
+          onPress={() => router.back()}
+          activeOpacity={0.7}
+        >
+          <Image
+            source={Imagem}
+            style={{ width: 30, height: 30 }}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
+
+        <View style={styles.divTitle}>
+          <Image
+            source={cavalo}
+            style={{ width: 40, height: 40 }}
+            resizeMode="contain"
+          />
+          <Text style={styles.title}>Carlinhos Bet</Text>
+        </View>
+        <View style={styles.Saldo}>
+          <Text style={{ fontSize: 15, color: '#05DB70', fontWeight: '500' }}>R$ {saldo.toFixed(2)}</Text>
+        </View>
+        <TouchableOpacity style={styles.user} onPress={() => router.push('/telaUsuario')} activeOpacity={0.7}>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+  else if (onSaldo) {
+    return (
+      <View style={styles.divNavBar}>
+        <TouchableOpacity
+          style={styles.botaoVoltar}
+          onPress={() => router.back()}
+          activeOpacity={0.7}
+        >
+          <Image
+            source={Imagem}
+            style={{ width: 30, height: 30 }}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
+
+        <View style={styles.divTitle}>
+          <Image
+            source={cavalo}
+            style={{ width: 40, height: 40 }}
+            resizeMode="contain"
+          />
+          <Text style={styles.title}>Carlinhos Bet</Text>
+        </View>
+        <View style={styles.Saldo}>
+          <Text style={{ fontSize: 15, color: '#05DB70', fontWeight: '500' }}>R$ {saldo.toFixed(2)}</Text>
+        </View>
+      </View>
+    );
+  }
+  else if (onVoltar) {
+    return (
+      <View style={styles.divNavBar}>
+        <View style={styles.divTitle}>
+          <Image
+            source={cavalo}
+            style={{ width: 40, height: 40 }}
+            resizeMode="contain"
+          />
+          <Text style={styles.title}>Carlinhos Bet</Text>
+        </View>
+      </View>
+    );
+  }
+  else {
+    return (
+      <View style={styles.divNavBar}>
+        <TouchableOpacity
+          style={styles.botaoVoltar}
+          onPress={() => router.back()}
+          activeOpacity={0.7}
+        >
+          <Image
+            source={Imagem}
+            style={{ width: 30, height: 30 }}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
+
+        <View style={styles.divTitle}>
+          <Image
+            source={cavalo}
+            style={{ width: 40, height: 40 }}
+            resizeMode="contain"
+          />
+          <Text style={styles.title}>Carlinhos Bet</Text>
+        </View>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({

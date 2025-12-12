@@ -5,9 +5,7 @@ import Back from '../comp/background';
 import CorridaCavalos from '../comp/corridaCavalos';
 
 export default function TelaCorridaCavalos() {
-  const [triggerAtt, setTriggerAtt] = useState(0);
   
-  const atualizarSaldoNavBar = () => setTriggerAtt(prev => prev + 1);
 
   return (
     <View style={styles.container}>
