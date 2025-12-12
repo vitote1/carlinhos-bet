@@ -24,6 +24,7 @@ export default function Index() {
             <ScrollView 
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
+                contentContainerStyle={styles.scrollViewContent}
                 >
                 <NavBar triggerAtt={triggerAtt} onSaldo = {1} onUsuario = {1}/>
                 <Carlos />
@@ -59,9 +60,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         marginTop: 400,
     },
-    scrollViewContent: {
-        alignItems: 'center',
-        paddingBottom: 100,
-        height: '150%',
-    },
+     scrollViewContent: {
+    alignItems: 'center',
+    height: '140%',
+  },
 });
