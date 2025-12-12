@@ -9,8 +9,9 @@ export default function InputValor({ value: valorInicial = '', onChangeText }) {
   }, [valorInicial]);
 
   const handleChange = (text) => {
-    setValorSaque(text);
-    if (typeof onChangeText === 'function') onChangeText(text);
+    const apenasNumeros = text.replace(/[^0-9.]/g, '');
+    setValorSaque(apenasNumeros);
+    if (typeof onChangeText === 'function') onChangeText(apenasNumeros);
   };
 
   return (
